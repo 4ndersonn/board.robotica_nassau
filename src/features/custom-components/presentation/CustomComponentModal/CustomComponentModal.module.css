@@ -1,0 +1,77 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(3px);
+}
+
+.dialog {
+  width: 100%;
+  max-width: 780px;
+  background-color: var(--color-bg-panel);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-panel);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-bg-elevated);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.closeBtn {
+  padding: 2px 6px;
+  color: var(--color-text-secondary);
+}
+
+.twoColumnsBody {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.errorsBox {
+  margin: 0 var(--space-4) var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent-danger-soft);
+  border: 1px solid var(--color-accent-danger);
+  color: var(--color-accent-danger);
+  font-size: 11px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--color-border-subtle);
+  background-color: var(--color-bg-elevated);
+}

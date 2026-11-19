@@ -1,0 +1,98 @@
+.inspectorCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-accent-selection);
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent-selection);
+}
+
+.sideTag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.colorGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.colorBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-canvas);
+  border: 1px solid var(--color-border-subtle);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.colorBtnActive {
+  border-color: var(--color-accent-selection);
+  color: var(--color-text-primary);
+  background-color: var(--color-accent-selection-soft);
+}
+
+.colorDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.noteInput {
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-canvas);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-primary);
+  font-size: 12px;
+}
+
+.noteInput:focus {
+  outline: none;
+  border-color: var(--color-accent-selection);
+}
+
+.actionRow {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.fullBtn {
+  flex: 1;
+}

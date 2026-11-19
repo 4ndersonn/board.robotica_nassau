@@ -1,0 +1,125 @@
+.inspectorContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent-selection);
+}
+
+.coordBadge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.aliasInput {
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-canvas);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-primary);
+  font-size: 12px;
+}
+
+.aliasInput:focus {
+  outline: none;
+  border-color: var(--color-accent-selection);
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.metaKey {
+  color: var(--color-text-secondary);
+}
+
+.metaValue {
+  font-family: var(--font-mono);
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.actionsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.actionRow {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.fullWidthBtn {
+  flex: 1;
+}
+
+.feedbackAlert {
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent-danger-soft);
+  border: 1px solid var(--color-accent-danger);
+  color: var(--color-accent-danger);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.emptyCard {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-elevated);
+  border: 1px dashed var(--color-border-strong);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.emptyTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.emptyText {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}

@@ -1,0 +1,55 @@
+.boardSvg {
+  display: block;
+  filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.65));
+  user-select: none;
+}
+
+.substrateTop {
+  fill: var(--pcb-top-substrate);
+  stroke: var(--pcb-top-substrate-border);
+  stroke-width: 2.5px;
+  transition:
+    fill 0.2s ease,
+    stroke 0.2s ease;
+}
+
+.substrateBottom {
+  fill: var(--pcb-bottom-substrate);
+  stroke: var(--pcb-bottom-substrate-border);
+  stroke-width: 2.5px;
+  transition:
+    fill 0.2s ease,
+    stroke 0.2s ease;
+}
+
+.innerSilkBorderTop {
+  fill: none;
+  stroke: var(--pcb-top-silkscreen);
+  stroke-width: 1px;
+  stroke-dasharray: 4 3;
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.innerSilkBorderBottom {
+  fill: none;
+  stroke: var(--pcb-bottom-silkscreen);
+  stroke-width: 1px;
+  stroke-dasharray: 4 3;
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.mountingHole {
+  fill: var(--pcb-mounting-hole);
+  stroke: var(--pcb-mounting-ring);
+  stroke-width: 2px;
+}
+
+.crosshairGuide {
+  stroke: var(--color-accent-selection);
+  stroke-width: 1px;
+  stroke-dasharray: 3 3;
+  opacity: 0.45;
+  pointer-events: none;
+}

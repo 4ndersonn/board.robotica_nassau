@@ -1,0 +1,36 @@
+.holeGroup {
+  cursor: crosshair;
+}
+
+.padTop {
+  fill: var(--pcb-top-pad-outer);
+  transition:
+    fill 0.12s ease,
+    stroke 0.12s ease;
+}
+
+.padBottom {
+  fill: var(--pcb-bottom-pad-outer);
+  transition:
+    fill 0.12s ease,
+    stroke 0.12s ease;
+}
+
+.padHovered {
+  fill: var(--color-accent-selection);
+}
+
+.drill {
+  fill: var(--pcb-hole-drill);
+}
+
+.hoverRing {
+  fill: none;
+  stroke: var(--color-accent-selection);
+  stroke-width: 2px;
+  pointer-events: none;
+}
+
+.hitTarget {
+  fill: transparent;
+}

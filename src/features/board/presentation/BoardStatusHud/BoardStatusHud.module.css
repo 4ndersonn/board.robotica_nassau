@@ -1,0 +1,79 @@
+.hudBar {
+  position: absolute;
+  bottom: var(--space-4);
+  left: var(--space-4);
+  right: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-3);
+  background-color: rgba(30, 30, 34, 0.92);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(6px);
+  box-shadow: var(--shadow-panel);
+  pointer-events: none;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badgeTop {
+  background-color: var(--color-accent-active-soft);
+  color: var(--color-accent-active);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+}
+
+.badgeBottom {
+  background-color: var(--color-accent-selection-soft);
+  color: var(--color-accent-selection);
+  border: 1px solid rgba(234, 179, 8, 0.35);
+}
+
+.coordDisplay {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.coordLabel {
+  color: var(--color-text-secondary);
+}
+
+.coordValue {
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-accent-selection);
+  font-weight: 700;
+  min-width: 44px;
+  text-align: center;
+}
+
+.coordMeta {
+  color: var(--color-text-muted);
+  font-size: 11px;
+}
+
+.hint {
+  color: var(--color-text-muted);
+  font-size: 11px;
+}

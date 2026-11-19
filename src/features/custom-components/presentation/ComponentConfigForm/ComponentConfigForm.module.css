@@ -1,0 +1,88 @@
+.formColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.rowTwo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.input {
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-canvas);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-primary);
+  font-size: 12px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-accent-selection);
+}
+
+.presetsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.presetBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-canvas);
+  border: 1px solid var(--color-border-subtle);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.presetBtnActive {
+  border-color: var(--color-accent-selection);
+  color: var(--color-text-primary);
+}
+
+.presetSwatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.customColorRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: 4px;
+}
+
+.colorPicker {
+  width: 28px;
+  height: 24px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.quickPinGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}

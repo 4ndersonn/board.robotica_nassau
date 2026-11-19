@@ -1,0 +1,127 @@
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-subtle);
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+  overflow: hidden;
+}
+
+.cardWrapper:hover {
+  background-color: var(--color-bg-hover);
+  border-color: var(--color-border-strong);
+}
+
+.cardActive {
+  border-color: var(--color-accent-selection);
+  background-color: var(--color-accent-selection-soft);
+}
+
+.cardMainBtn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  text-align: left;
+  width: 100%;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.titleGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.colorSwatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.badgesGroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.customTag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 5px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent-selection-soft);
+  color: var(--color-accent-selection);
+  border: 1px solid rgba(234, 179, 8, 0.35);
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-canvas);
+  color: var(--color-text-secondary);
+}
+
+.description {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-text-muted);
+}
+
+.customActionsBar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 4px 10px 6px;
+  border-top: 1px solid var(--color-border-subtle);
+  background-color: rgba(18, 18, 20, 0.35);
+}
+
+.miniActionBtn {
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+}
+
+.miniActionBtn:hover {
+  background-color: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+}
+
+.miniDangerBtn {
+  color: var(--color-accent-danger);
+}

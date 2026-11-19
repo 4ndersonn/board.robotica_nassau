@@ -1,0 +1,53 @@
+.wireGroup {
+  cursor: pointer;
+}
+
+.hitPolyline {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 14px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.wireSolid {
+  fill: none;
+  stroke-width: 4.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.55));
+}
+
+.wireOpposite {
+  fill: none;
+  stroke-width: 3.2px;
+  stroke-dasharray: 6 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.42;
+}
+
+.highlightHalo {
+  fill: none;
+  stroke: var(--color-accent-selection);
+  stroke-width: 9px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.solderPad {
+  fill: #d4d4d8;
+  stroke: #18181b;
+  stroke-width: 1.5px;
+}
+
+.solderCore {
+  fill: #71717a;
+}
+
+.waypointNode {
+  stroke: #09090b;
+  stroke-width: 1px;
+}

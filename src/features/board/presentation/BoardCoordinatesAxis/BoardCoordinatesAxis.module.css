@@ -1,0 +1,26 @@
+.axisLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: central;
+  user-select: none;
+  pointer-events: none;
+  transition: fill 0.12s ease;
+}
+
+.silkscreenTop {
+  fill: var(--pcb-top-silkscreen);
+  opacity: 0.78;
+}
+
+.silkscreenBottom {
+  fill: var(--pcb-bottom-silkscreen);
+  opacity: 0.82;
+}
+
+.highlightedAxis {
+  fill: var(--color-accent-selection);
+  opacity: 1;
+  font-weight: 700;
+}

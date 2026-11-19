@@ -1,0 +1,104 @@
+.sidebarContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: var(--space-2);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+}
+
+.countBadge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-elevated);
+  color: var(--color-text-secondary);
+}
+
+.libraryToolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.librarySubRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-canvas);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-primary);
+  font-size: 12px;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--color-accent-selection);
+}
+
+.placementControls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent-selection-soft);
+  border: 1px solid var(--color-accent-selection);
+}
+
+.placementHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-accent-selection);
+}
+
+.placementActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.listScroll {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  overflow-y: auto;
+  padding-right: 2px;
+  flex: 1;
+}
+
+.emptyState {
+  padding: var(--space-4);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 12px;
+}

@@ -1,0 +1,65 @@
+:root {
+  /* Bancada / CAD Dark Neutrals */
+  --color-bg-canvas: #121214;
+  --color-bg-panel: #1e1e22;
+  --color-bg-elevated: #2a2a30;
+  --color-bg-hover: #34343c;
+
+  /* Borders & Dividers */
+  --color-border-subtle: #2e2e36;
+  --color-border-strong: #454552;
+  --color-grid-line: rgba(255, 255, 255, 0.04);
+  --color-grid-major: rgba(255, 255, 255, 0.08);
+
+  /* Text Hierarchy */
+  --color-text-primary: #f4f4f6;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #6e6e7a;
+
+  /* Semantic Colors */
+  --color-accent-selection: #eab308;
+  --color-accent-selection-soft: rgba(234, 179, 8, 0.18);
+  --color-accent-active: #22c55e;
+  --color-accent-active-soft: rgba(34, 197, 94, 0.16);
+  --color-accent-danger: #ef4444;
+  --color-accent-danger-soft: rgba(239, 68, 68, 0.16);
+
+  /* PCB Physical Aesthetics - Top View (FR4 / Phenolic Component Side) */
+  --pcb-top-substrate: #183a28;
+  --pcb-top-substrate-border: #25583d;
+  --pcb-top-silkscreen: #d9f2e4;
+  --pcb-top-pad-outer: #c5a059;
+
+  /* PCB Physical Aesthetics - Bottom View (Mirrored Copper / Solder Side) */
+  --pcb-bottom-substrate: #2b1d12;
+  --pcb-bottom-substrate-border: #523721;
+  --pcb-bottom-silkscreen: #f3d9b1;
+  --pcb-bottom-pad-outer: #d9823b;
+
+  /* Shared PCB Elements */
+  --pcb-hole-drill: #0d0d0f;
+  --pcb-mounting-hole: #09090b;
+  --pcb-mounting-ring: #71717a;
+
+  /* Spacing & Layout */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+
+  --header-height: 54px;
+  --sidebar-left-width: 260px;
+  --sidebar-right-width: 340px;
+
+  /* Radius & Shadows */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --shadow-panel: 0 8px 24px rgba(0, 0, 0, 0.45);
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
+}

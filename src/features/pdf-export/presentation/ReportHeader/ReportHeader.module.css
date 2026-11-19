@@ -1,0 +1,70 @@
+.headerBox {
+  border: 1.5px solid #18181b;
+  border-radius: 4px;
+  padding: 10px 14px;
+  background-color: #ffffff;
+  color: #09090b;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.topRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1.5px solid #18181b;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+
+.robotTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: #09090b;
+  letter-spacing: -0.01em;
+}
+
+.docBadge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #27272a;
+  text-transform: uppercase;
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px 12px;
+  font-size: 11px;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.metaLabel {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #52525b;
+}
+
+.metaValue {
+  font-weight: 600;
+  color: #09090b;
+}
+
+.notesRow {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed #a1a1aa;
+  font-size: 11px;
+  color: #18181b;
+}
+
+.notesLabel {
+  font-weight: 700;
+  margin-right: 6px;
+}

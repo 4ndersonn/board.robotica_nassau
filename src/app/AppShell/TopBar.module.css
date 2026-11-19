@@ -1,0 +1,80 @@
+.topBar {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-4);
+  background-color: var(--color-bg-panel);
+  border-bottom: 1px solid var(--color-border-subtle);
+  z-index: 10;
+}
+
+.brandGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.brandBadge {
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-accent-active);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.projectInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.projectName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.projectSpec {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+}
+
+.viewSwitcher {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 3px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-canvas);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.zoomControls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.zoomReadout {
+  min-width: 54px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  padding: 4px 8px;
+  background-color: var(--color-bg-canvas);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+@media print {
+  .topBar {
+    display: none !important;
+  }
+}
