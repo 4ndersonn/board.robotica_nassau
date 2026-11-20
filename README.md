@@ -16,19 +16,9 @@ A ferramenta resolve o problema recorrente de manutenção e montagem em equipes
 
 | Visão Geral do Editor CAD | Vista Inferior Espelhada e Fiação | Relatório Técnico A4 Vetorial (PDF) |
 | :---: | :---: | :---: |
-| `docs/screenshots/editor-top-view.png` | `docs/screenshots/editor-bottom-mirrored.png` | `docs/screenshots/technical-report-a4.png` |
+| ![Visão Geral do Editor CAD](docs/assets/editor-top-view.png) | ![Vista Inferior Espelhada e Fiação](docs/assets/bottom-mirrored.png) | ![Relatório Técnico A4 Vetorial](docs/assets/technical-report-a4.png) |
 
 ---
-
-## Arquitetura do Projeto
-
-O código segue estritamente **Clean Architecture combinada com divisão por Feature** (Feature-Sliced Design), conforme documentado em [ARCHITECTURE.md](./ARCHITECTURE.md).
-
-### Regras de Dependência e Isolamento
-1. **`domain/` (TypeScript Puro)**: Contém entidades, Value Objects, validadores, cálculos matriciais de rotação, espelhamento horizontal (`mirrorX`, `toDisplayCoordinate`), roteamento de fios, resolução de Netlist, geração de BOM e geração de código C++. Não importa React, APIs de DOM, `infrastructure/` ou `presentation/`.
-2. **`application/` (Casos de Uso e Orquestração)**: Contém casos de uso puros e hooks de controle de estado que dependem apenas de `domain/` (e de portas definidas no domínio).
-3. **`infrastructure/` (Adaptadores Externos)**: Implementa portas de persistência (`LocalStorage`, arquivos `.roboboard.json` e `biblioteca-equipe.json`), catálogo estático, área de transferência e acionamento de impressão vetorial (`window.print()`).
-4. **`presentation/` (UI Declarativa e CSS Modules)**: Componentes React pequenos e focados, sem lógica de negócio no JSX, estilizados exclusivamente via CSS Modules (`.module.css`) consumindo tokens centralizados em `src/core/styles/tokens.css`.
 
 ### Árvore de Diretórios (`src/`)
 
