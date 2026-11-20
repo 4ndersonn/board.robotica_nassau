@@ -9,7 +9,7 @@ export function ReportBomTable({ items }: ReportBomTableProps) {
   return (
     <section className={styles.sectionBox}>
       <h2 className={styles.sectionTitle}>
-        Lista de Materiais — BOM ({items.length} modelos)
+        Lista de materiais ({items.length})
       </h2>
 
       {items.length === 0 ? (

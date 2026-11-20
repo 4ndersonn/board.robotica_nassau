@@ -40,7 +40,7 @@ export function PrintSheetA4({
       {report.includeCppDefines && (
         <section className={styles.cppBlock}>
           <h2 className={styles.cppTitle}>
-            Mapeamento de Pinagem C++ (#define ESP32 / Arduino)
+            Pinagem C++ (#define)
           </h2>
           <pre className={styles.cppPre}>
             <code>{report.cppHeaderCode}</code>
@@ -50,8 +50,7 @@ export function PrintSheetA4({
 
       <footer className={styles.footerNote}>
         <span>
-          RoboBoard Docs — Padrão Perfboard Universal 50×70 mm (Matriz 18×24,
-          passo 2.54 mm)
+          Perfboard 50×70 mm (18×24, passo 2.54 mm)
         </span>
         <span>
           {`${report.metadata.robotName} • v${report.metadata.version}`}

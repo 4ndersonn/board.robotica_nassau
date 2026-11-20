@@ -1,5 +1,4 @@
 import {
-  BOARD_5X7_SPEC,
   formatHoleLabel,
   type BoardViewMode,
   type DisplayHoleCoordinate,
@@ -31,8 +30,8 @@ export function BoardStatusHud({
       <div className={styles.group}>
         <span className={modeBadgeClass}>
           {isBottom
-            ? '⇄ VISTA INFERIOR ESPELHADA (SOLDA / COBRE)'
-            : '◉ VISTA SUPERIOR (COMPONENTES / FR4)'}
+            ? '⇄ Vista inferior (solda)'
+            : '◉ Vista superior (componentes)'}
         </span>
 
         <div className={styles.coordDisplay}>
@@ -49,12 +48,6 @@ export function BoardStatusHud({
             </span>
           )}
         </div>
-      </div>
-
-      <div className={styles.group}>
-        <span className={styles.hint}>
-          {`${BOARD_5X7_SPEC.columns}×${BOARD_5X7_SPEC.rows} (${BOARD_5X7_SPEC.pitchMm} mm) • R: Girar 90° • Del: Remover • Scroll: Zoom`}
-        </span>
       </div>
     </div>
   );

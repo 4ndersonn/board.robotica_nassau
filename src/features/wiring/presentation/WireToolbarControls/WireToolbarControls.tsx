@@ -69,7 +69,7 @@ export function WireToolbarControls({
                 type="button"
                 className={swatchClassName}
                 style={{ backgroundColor: preset.hex }}
-                title={`${preset.name} — ${preset.usageHint}`}
+                title={`${preset.name}: ${preset.usageHint}`}
                 aria-label={`Cor de fio ${preset.name}`}
                 aria-pressed={isSelected}
                 onClick={() => setActiveColorId(preset.id)}
@@ -103,8 +103,8 @@ export function WireToolbarControls({
             title="Mostrar ou ocultar fios traçados no lado oposto da placa"
           >
             {showOppositeSideWires
-              ? '👁 Lado Oposto: Visível'
-              : '🚫 Lado Oposto: Oculto'}
+              ? 'Lado oposto: visível'
+              : 'Lado oposto: oculto'}
           </Button>
         </div>
       </div>

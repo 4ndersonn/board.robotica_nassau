@@ -11,7 +11,7 @@ export function ReportNetlistTable({
   return (
     <section className={styles.sectionBox}>
       <h2 className={styles.sectionTitle}>
-        Tabela Completa de Conexões — Netlist ({entries.length} fios)
+        Netlist ({entries.length} fios)
       </h2>
 
       {entries.length === 0 ? (

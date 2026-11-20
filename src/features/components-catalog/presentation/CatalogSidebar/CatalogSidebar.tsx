@@ -40,7 +40,7 @@ export function CatalogSidebar({
   return (
     <div className={styles.sidebarContainer}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Catálogo de Módulos</h2>
+        <h2 className={styles.title}>Catálogo de módulos</h2>
         <span className={styles.countBadge}>
           {filteredDefinitions.length}
         </span>
@@ -52,7 +52,7 @@ export function CatalogSidebar({
             variant="activeSelection"
             onClick={customController.openCreateModal}
           >
-            + Novo Componente
+            + Novo componente
           </Button>
 
           <div className={styles.librarySubRow}>
@@ -61,14 +61,14 @@ export function CatalogSidebar({
               onClick={() => libraryInputRef.current?.click()}
               title="Importar biblioteca-equipe.json"
             >
-              📥 Importar Lib
+              Importar lib
             </Button>
             <Button
               variant="secondary"
               onClick={customController.handleExportLibrary}
               title="Exportar biblioteca-equipe.json"
             >
-              📤 Exportar Lib
+              Exportar lib
             </Button>
           </div>
 
@@ -94,7 +94,7 @@ export function CatalogSidebar({
       {activePlacementDefId && (
         <div className={styles.placementControls}>
           <div className={styles.placementHeader}>
-            <span>Modo de Posicionamento</span>
+            <span>Posicionamento</span>
             <span>{`${placementRotation}°`}</span>
           </div>
 

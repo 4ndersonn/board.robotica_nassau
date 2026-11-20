@@ -63,9 +63,8 @@
 
 .customTag {
   font-family: var(--font-mono);
-  font-size: 9px;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 600;
   padding: 2px 5px;
   border-radius: var(--radius-sm);
   background-color: var(--color-accent-selection-soft);
@@ -81,12 +80,6 @@
   border-radius: var(--radius-sm);
   background-color: var(--color-bg-canvas);
   color: var(--color-text-secondary);
-}
-
-.description {
-  font-size: 11px;
-  color: var(--color-text-secondary);
-  line-height: 1.4;
 }
 
 .metaRow {

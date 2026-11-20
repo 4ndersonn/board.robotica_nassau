@@ -25,12 +25,11 @@ export function ComponentInspector({
     return (
       <div className={styles.emptyCard}>
         <span className={styles.emptyTitle}>
-          {`Módulos na Placa (${placedComponents.length})`}
+          {`Módulos na placa (${placedComponents.length})`}
         </span>
         <p className={styles.emptyText}>
-          Clique em um componente no catálogo à esquerda para posicioná-lo ou
-          selecione um módulo já inserido na placa para editar apelido, lado,
-          rotação (`R`) ou remover (`Delete`).
+          Selecione um componente no catálogo para posicioná-lo ou clique em um
+          módulo na placa para editar.
         </p>
 
         {statusFeedback && (
@@ -48,7 +47,7 @@ export function ComponentInspector({
   return (
     <div className={styles.inspectorContainer}>
       <div className={styles.sectionHeader}>
-        <span className={styles.sectionTitle}>Módulo Selecionado</span>
+        <span className={styles.sectionTitle}>Módulo selecionado</span>
         <span className={styles.coordBadge}>{`Âncora ${anchorLabel}`}</span>
       </div>
 
@@ -57,7 +56,7 @@ export function ComponentInspector({
           htmlFor="component-alias-input"
           className={styles.fieldLabel}
         >
-          Apelido do Componente
+          Apelido do componente
         </label>
         <input
           id="component-alias-input"
@@ -75,25 +74,25 @@ export function ComponentInspector({
         </div>
 
         <div className={styles.metaRow}>
-          <span className={styles.metaKey}>Dimensão / Pinos</span>
+          <span className={styles.metaKey}>Dimensão / pinos</span>
           <span className={styles.metaValue}>
             {`${selectedDefinition.widthHoles}×${selectedDefinition.heightHoles} (${selectedDefinition.pins.length}p)`}
           </span>
         </div>
 
         <div className={styles.metaRow}>
-          <span className={styles.metaKey}>Rotação Atual</span>
+          <span className={styles.metaKey}>Rotação atual</span>
           <span className={styles.metaValue}>
             {`${selectedComponent.rotation}°`}
           </span>
         </div>
 
         <div className={styles.metaRow}>
-          <span className={styles.metaKey}>Lado de Montagem</span>
+          <span className={styles.metaKey}>Lado de montagem</span>
           <span className={styles.metaValue}>
             {selectedComponent.side === 'top'
-              ? 'Frente (Componentes)'
-              : 'Verso (Solda)'}
+              ? 'Frente (componentes)'
+              : 'Verso (solda)'}
           </span>
         </div>
       </div>
@@ -117,7 +116,7 @@ export function ComponentInspector({
             className={styles.fullWidthBtn}
             onClick={toggleSelectedComponentSide}
           >
-            ⇄ Alternar Lado
+            ⇄ Alternar lado
           </Button>
         </div>
 
@@ -125,7 +124,7 @@ export function ComponentInspector({
           variant="danger"
           onClick={deleteSelectedComponent}
         >
-          ✕ Remover Componente (Delete)
+          ✕ Remover componente (Delete)
         </Button>
       </div>
     </div>

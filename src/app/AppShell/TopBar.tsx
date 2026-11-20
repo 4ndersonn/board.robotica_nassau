@@ -41,17 +41,9 @@ export function TopBar({
 
   return (
     <header className={styles.topBar}>
-      <div className={styles.brandGroup}>
-        <span className={styles.brandBadge}>ROBOBOARD</span>
-        <div className={styles.projectInfo}>
-          <h1 className={styles.projectName}>
-            {`${metadata.robotName} (v${metadata.version})`}
-          </h1>
-          <span className={styles.projectSpec}>
-            {`${metadata.category} • 5×7 cm (18×24)`}
-          </span>
-        </div>
-      </div>
+      <h1 className={styles.projectName}>
+        {`${metadata.robotName} (v${metadata.version})`}
+      </h1>
 
       <ProjectToolbarActions
         persistenceController={persistenceController}

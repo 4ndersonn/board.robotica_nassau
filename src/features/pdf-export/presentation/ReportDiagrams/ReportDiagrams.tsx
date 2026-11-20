@@ -297,7 +297,7 @@ export function ReportDiagrams({
       <div className={styles.diagramsGrid}>
         <div className={styles.diagramCard}>
           <div className={styles.diagramTitle}>
-            <span>Vista Superior (Componentes)</span>
+            <span>Vista superior (componentes)</span>
             <span className={styles.diagramSub}>Colunas 1 → 18</span>
           </div>
           <PrintableVectorBoardSvg
@@ -311,7 +311,7 @@ export function ReportDiagrams({
 
         <div className={styles.diagramCard}>
           <div className={styles.diagramTitle}>
-            <span>Vista Inferior Espelhada (Soldas e Fios)</span>
+            <span>Vista inferior espelhada (solda)</span>
             <span className={styles.diagramSub}>Colunas 18 → 1</span>
           </div>
           <PrintableVectorBoardSvg
@@ -326,7 +326,7 @@ export function ReportDiagrams({
 
       {usedWireColors.length > 0 && (
         <div className={styles.legendRow}>
-          <span className={styles.legendTitle}>Legenda de Fios:</span>
+          <span className={styles.legendTitle}>Fios:</span>
           {usedWireColors.map((color) => (
             <span
               key={color.id}

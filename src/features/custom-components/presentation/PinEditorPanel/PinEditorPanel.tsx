@@ -24,12 +24,11 @@ export function PinEditorPanel({
     return (
       <div className={styles.pinPanel}>
         <div className={styles.headerRow}>
-          <span>Editor de Pino</span>
+          <span>Editor de pino</span>
           <span className={styles.coordTag}>{`${totalPinsCount} pinos`}</span>
         </div>
         <p className={styles.hintText}>
-          Clique em qualquer furo no mini-grid acima para adicionar ou
-          selecionar um pino e editar seu Rótulo e Tipo.
+          Clique em um furo no grid para adicionar ou editar um pino.
         </p>
       </div>
     );
@@ -38,7 +37,7 @@ export function PinEditorPanel({
   return (
     <div className={styles.pinPanel}>
       <div className={styles.headerRow}>
-        <span>Pino Selecionado</span>
+        <span>Pino selecionado</span>
         <span className={styles.coordTag}>
           {`col:${selectedPin.col}, row:${selectedPin.row}`}
         </span>
@@ -50,7 +49,7 @@ export function PinEditorPanel({
             htmlFor="pin-label-input"
             className={styles.label}
           >
-            Rótulo do Pino
+            Rótulo do pino
           </label>
           <input
             id="pin-label-input"
@@ -66,7 +65,7 @@ export function PinEditorPanel({
             htmlFor="pin-type-select"
             className={styles.label}
           >
-            Tipo Elétrico
+            Tipo elétrico
           </label>
           <select
             id="pin-type-select"
@@ -76,10 +75,10 @@ export function PinEditorPanel({
               onUpdatePin({ type: event.target.value as PinType })
             }
           >
-            <option value="signal">Sinal / GPIO (Azul)</option>
-            <option value="power">Alimentação / VCC (Vermelho)</option>
-            <option value="gnd">Terra / GND (Cinza)</option>
-            <option value="motor">Motor / Potência (Amarelo)</option>
+            <option value="signal">Sinal / GPIO (azul)</option>
+            <option value="power">Alimentação / VCC (vermelho)</option>
+            <option value="gnd">Terra / GND (cinza)</option>
+            <option value="motor">Motor / potência (amarelo)</option>
           </select>
         </div>
       </div>
@@ -88,7 +87,7 @@ export function PinEditorPanel({
         variant="danger"
         onClick={onRemovePin}
       >
-        ✕ Remover Este Pino
+        ✕ Remover pino
       </Button>
     </div>
   );

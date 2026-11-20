@@ -63,7 +63,7 @@ export function ProjectToolbarActions({
         onClick={openMetadataModal}
         title="Editar metadados do robô, versão, autor e notas"
       >
-        ⚙ Projeto
+        Projeto
       </Button>
 
       <Button
@@ -71,7 +71,7 @@ export function ProjectToolbarActions({
         onClick={() => fileInputRef.current?.click()}
         title="Importar arquivo .roboboard.json"
       >
-        📂 Abrir
+        Abrir
       </Button>
 
       <Button
@@ -79,7 +79,7 @@ export function ProjectToolbarActions({
         onClick={handleExportFile}
         title="Exportar projeto em arquivo .roboboard.json"
       >
-        💾 JSON
+        JSON
       </Button>
 
       {onOpenFirmwareModal && (
@@ -98,7 +98,7 @@ export function ProjectToolbarActions({
           onClick={onOpenPdfPreview}
           title="Abrir Relatório Técnico A4 Vetorial para impressão ou exportação em PDF"
         >
-          📄 Exportar PDF
+          Exportar PDF
         </Button>
       )}
 

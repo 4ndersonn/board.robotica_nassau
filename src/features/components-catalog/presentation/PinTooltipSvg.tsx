@@ -27,7 +27,7 @@ export function PinTooltipSvg({
     BOARD_5X7_SPEC,
   );
 
-  const labelText = `${tooltip.componentAlias} — ${tooltip.pinLabel}`;
+  const labelText = `${tooltip.componentAlias}: ${tooltip.pinLabel}`;
   const boxWidth = Math.max(96, labelText.length * 7 + 16);
   const boxHeight = 22;
   const boxX = cx - boxWidth / 2;

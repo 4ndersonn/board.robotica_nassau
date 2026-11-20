@@ -335,7 +335,7 @@ export function useCustomComponents(params: {
           customDefinitions,
         );
         setCustomDefinitions(merged);
-        setLibraryFeedback('Biblioteca da equipe importada com sucesso!');
+        setLibraryFeedback('Biblioteca importada.');
       } catch (error) {
         const msg =
           error instanceof Error

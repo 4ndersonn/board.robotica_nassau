@@ -52,8 +52,6 @@ export function ComponentCard({
           </div>
         </div>
 
-        <p className={styles.description}>{definition.description}</p>
-
         <div className={styles.metaRow}>
           <span>{definition.category}</span>
           <span>{`${definition.pins.length} pinos`}</span>

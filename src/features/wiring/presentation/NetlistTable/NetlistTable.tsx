@@ -19,15 +19,14 @@ export function NetlistTable({
   return (
     <div className={styles.netlistSection}>
       <div className={styles.headerRow}>
-        <h3 className={styles.title}>Netlist Automática (Conexões)</h3>
+        <h3 className={styles.title}>Netlist</h3>
         <span className={styles.countBadge}>{entries.length}</span>
       </div>
 
       {entries.length === 0 ? (
         <div className={styles.emptyState}>
-          Nenhum fio traçado. Ative o modo <strong>Fio (W)</strong> na barra
-          superior, clique no furo de origem, adicione dobras e clique no furo
-          de destino (ou pressione <code>Enter</code>) para gerar a Netlist.
+          Nenhum fio traçado. Ative <strong>Fio (W)</strong> e conecte dois
+          furos na placa.
         </div>
       ) : (
         <div className={styles.tableScroll}>

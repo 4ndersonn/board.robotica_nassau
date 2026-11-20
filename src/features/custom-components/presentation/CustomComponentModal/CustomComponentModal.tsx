@@ -40,8 +40,8 @@ export function CustomComponentModal({
         <header className={styles.header}>
           <h2 className={styles.title}>
             {draft.id
-              ? `Editar Componente Customizado: ${draft.name}`
-              : 'Novo Componente Customizado (Furos & Pinagem)'}
+              ? `Editar componente: ${draft.name}`
+              : 'Novo componente'}
           </h2>
           <button
             type="button"
@@ -91,7 +91,7 @@ export function CustomComponentModal({
             variant="activeConfirm"
             onClick={saveDraftComponent}
           >
-            {draft.id ? 'Salvar Alterações' : 'Criar Componente'}
+            {draft.id ? 'Salvar alterações' : 'Criar componente'}
           </Button>
         </footer>
       </div>

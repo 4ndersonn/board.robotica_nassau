@@ -67,13 +67,3 @@
   min-width: 44px;
   text-align: center;
 }
-
-.coordMeta {
-  color: var(--color-text-muted);
-  font-size: 11px;
-}
-
-.hint {
-  color: var(--color-text-muted);
-  font-size: 11px;
-}

@@ -31,7 +31,7 @@ export function ComponentConfigForm({
           htmlFor="custom-comp-name"
           className={styles.label}
         >
-          Nome do Componente *
+          Nome do componente *
         </label>
         <input
           id="custom-comp-name"
@@ -68,7 +68,7 @@ export function ComponentConfigForm({
             htmlFor="custom-comp-desc"
             className={styles.label}
           >
-            Descrição Curta
+            Descrição curta
           </label>
           <input
             id="custom-comp-desc"
@@ -88,7 +88,7 @@ export function ComponentConfigForm({
             htmlFor="custom-comp-width"
             className={styles.label}
           >
-            {`Largura em Furos (${MIN_COMPONENT_WIDTH}..${MAX_COMPONENT_WIDTH})`}
+            {`Largura em furos (${MIN_COMPONENT_WIDTH}..${MAX_COMPONENT_WIDTH})`}
           </label>
           <input
             id="custom-comp-width"
@@ -111,7 +111,7 @@ export function ComponentConfigForm({
             htmlFor="custom-comp-height"
             className={styles.label}
           >
-            {`Altura em Furos (${MIN_COMPONENT_HEIGHT}..${MAX_COMPONENT_HEIGHT})`}
+            {`Altura em furos (${MIN_COMPONENT_HEIGHT}..${MAX_COMPONENT_HEIGHT})`}
           </label>
           <input
             id="custom-comp-height"
@@ -131,7 +131,7 @@ export function ComponentConfigForm({
       </div>
 
       <div className={styles.fieldGroup}>
-        <span className={styles.label}>Cor da PCB (Presets + Livre)</span>
+        <span className={styles.label}>Cor da PCB</span>
         <div className={styles.presetsRow}>
           {PCB_COLOR_PRESETS.map((preset) => {
             const isSelected = draft.color === preset.color;
@@ -165,7 +165,7 @@ export function ComponentConfigForm({
         </div>
 
         <div className={styles.customColorRow}>
-          <span className={styles.label}>Cor Corpo:</span>
+          <span className={styles.label}>Cor do corpo:</span>
           <input
             type="color"
             className={styles.colorPicker}
@@ -176,7 +176,7 @@ export function ComponentConfigForm({
             aria-label="Seletor livre de cor do corpo da PCB"
           />
 
-          <span className={styles.label}>Cor Borda:</span>
+          <span className={styles.label}>Cor da borda:</span>
           <input
             type="color"
             className={styles.colorPicker}
@@ -190,19 +190,19 @@ export function ComponentConfigForm({
       </div>
 
       <div className={styles.fieldGroup}>
-        <span className={styles.label}>Atalhos Rápidos de Pinagem</span>
+        <span className={styles.label}>Atalhos de pinagem</span>
         <div className={styles.quickPinGrid}>
           <Button
             variant="secondary"
             onClick={() => applyQuickPinRow('left')}
           >
-            + Fileira Esquerda
+            + Fileira esquerda
           </Button>
           <Button
             variant="secondary"
             onClick={() => applyQuickPinRow('right')}
           >
-            + Fileira Direita
+            + Fileira direita
           </Button>
           <Button
             variant="secondary"
@@ -220,7 +220,7 @@ export function ComponentConfigForm({
             variant="danger"
             onClick={clearAllPins}
           >
-            Limpar Pinos
+            Limpar pinos
           </Button>
         </div>
       </div>

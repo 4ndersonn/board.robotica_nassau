@@ -10,9 +10,6 @@ export function ReportHeader({ metadata }: ReportHeaderProps) {
     <header className={styles.headerBox}>
       <div className={styles.topRow}>
         <h1 className={styles.robotTitle}>{metadata.robotName}</h1>
-        <span className={styles.docBadge}>
-          ROBOBOARD DOCS — DOCUMENTAÇÃO DE BANCADA 5×7 CM
-        </span>
       </div>
 
       <div className={styles.metaGrid}>
@@ -24,7 +21,7 @@ export function ReportHeader({ metadata }: ReportHeaderProps) {
         </div>
 
         <div className={styles.metaItem}>
-          <span className={styles.metaLabel}>Versão de Hardware</span>
+          <span className={styles.metaLabel}>Versão de hardware</span>
           <span className={styles.metaValue}>
             {`v${metadata.version || '1.0'}`}
           </span>
@@ -45,7 +42,7 @@ export function ReportHeader({ metadata }: ReportHeaderProps) {
 
       {metadata.notes && (
         <div className={styles.notesRow}>
-          <span className={styles.notesLabel}>Notas Gerais:</span>
+          <span className={styles.notesLabel}>Notas:</span>
           <span>{metadata.notes}</span>
         </div>
       )}

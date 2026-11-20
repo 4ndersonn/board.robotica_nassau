@@ -26,14 +26,14 @@ export function WireInspector({
   return (
     <div className={styles.inspectorCard}>
       <div className={styles.headerRow}>
-        <span className={styles.title}>Fio Selecionado</span>
+        <span className={styles.title}>Fio selecionado</span>
         <span className={styles.sideTag}>
-          {selectedWire.side === 'top' ? 'Lado: Frente' : 'Lado: Verso'}
+          {selectedWire.side === 'top' ? 'Lado: frente' : 'Lado: verso'}
         </span>
       </div>
 
       <div className={styles.fieldGroup}>
-        <span className={styles.fieldLabel}>Cor do Condutor</span>
+        <span className={styles.fieldLabel}>Cor do condutor</span>
         <div className={styles.colorGrid}>
           {colorPresets.map((preset) => {
             const isSelected = preset.id === selectedWire.colorId;
@@ -67,7 +67,7 @@ export function WireInspector({
           htmlFor="wire-note-input"
           className={styles.fieldLabel}
         >
-          Observação / Função na Netlist
+          Observação
         </label>
         <input
           id="wire-note-input"
@@ -93,7 +93,7 @@ export function WireInspector({
         >
           {selectedWire.routingStyle === 'orthogonal'
             ? 'Estilo: 90°'
-            : 'Estilo: Livre'}
+            : 'Estilo: livre'}
         </Button>
 
         <Button
@@ -105,7 +105,7 @@ export function WireInspector({
             )
           }
         >
-          ⇄ Mover Lado
+          ⇄ Mover lado
         </Button>
       </div>
 
@@ -113,7 +113,7 @@ export function WireInspector({
         variant="danger"
         onClick={deleteSelectedWire}
       >
-        ✕ Excluir Fio (Delete)
+        ✕ Excluir fio (Delete)
       </Button>
     </div>
   );

@@ -46,14 +46,14 @@ export function useFirmwareExport(
     const ok = await copyCodeToClipboard(firmwareResult.headerCode);
     setCopyFeedback(
       ok
-        ? 'Defines C++ copiados para a área de transferência!'
+        ? 'Defines C++ copiados.'
         : 'Não foi possível copiar automaticamente.',
     );
   }, [firmwareResult.headerCode]);
 
   const handleDownloadHeader = useCallback(() => {
     downloadCppHeaderFile(firmwareResult.headerCode, metadata.robotName);
-    setCopyFeedback('Arquivo de cabeçalho C++ (.h) baixado com sucesso!');
+    setCopyFeedback('Arquivo .h baixado.');
   }, [firmwareResult.headerCode, metadata.robotName]);
 
   return {

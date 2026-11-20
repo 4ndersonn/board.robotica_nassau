@@ -22,7 +22,7 @@ export function ProjectMetadataModal({
   return (
     <Modal
       isOpen={isMetadataModalOpen}
-      title="Metadados do Projeto & Documentação Técnica"
+      title="Metadados do projeto"
       onClose={closeMetadataModal}
     >
       <div className={styles.formContainer}>
@@ -32,7 +32,7 @@ export function ProjectMetadataModal({
               htmlFor="meta-robot-name"
               className={styles.label}
             >
-              Nome do Robô / Placa
+              Nome do robô / placa
             </label>
             <input
               id="meta-robot-name"
@@ -71,7 +71,7 @@ export function ProjectMetadataModal({
               htmlFor="meta-version"
               className={styles.label}
             >
-              Versão de Hardware
+              Versão de hardware
             </label>
             <input
               id="meta-version"
@@ -89,7 +89,7 @@ export function ProjectMetadataModal({
               htmlFor="meta-date"
               className={styles.label}
             >
-              Data da Revisão
+              Data da revisão
             </label>
             <input
               id="meta-date"
@@ -108,7 +108,7 @@ export function ProjectMetadataModal({
             htmlFor="meta-author"
             className={styles.label}
           >
-            Responsável / Autor
+            Responsável
           </label>
           <input
             id="meta-author"
@@ -126,7 +126,7 @@ export function ProjectMetadataModal({
             htmlFor="meta-notes"
             className={styles.label}
           >
-            Notas Técnicas de Montagem
+            Notas de montagem
           </label>
           <textarea
             id="meta-notes"
@@ -147,7 +147,7 @@ export function ProjectMetadataModal({
             variant="danger"
             onClick={handleResetProject}
           >
-            Limpar / Novo Projeto
+            Limpar projeto
           </Button>
 
           <Button

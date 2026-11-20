@@ -22,15 +22,10 @@ export function FirmwareExportModal({
   return (
     <Modal
       isOpen={isFirmwareModalOpen}
-      title="Exportação de Pinagem C++ (ESP32 / Arduino)"
+      title="Exportar pinagem C++"
       onClose={closeFirmwareModal}
     >
       <div className={styles.container}>
-        <p className={styles.description}>
-          Mapeamento automático gerado a partir da Netlist cruzando os pinos
-          GPIO do ESP32 com os módulos conectados:
-        </p>
-
         <pre className={styles.codePre}>
           <code>{firmwareResult.headerCode}</code>
         </pre>
@@ -45,14 +40,14 @@ export function FirmwareExportModal({
               variant="activeSelection"
               onClick={() => void handleCopyDefines()}
             >
-              📋 Copiar Defines
+              Copiar defines
             </Button>
 
             <Button
               variant="secondary"
               onClick={handleDownloadHeader}
             >
-              ⬇ Baixar .h
+              Baixar .h
             </Button>
           </div>
 

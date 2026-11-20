@@ -87,9 +87,9 @@ export function AppShell({
     : undefined;
 
   const activePinTooltipText = hoveredPinTooltip
-    ? `${hoveredPinTooltip.componentAlias} — ${hoveredPinTooltip.pinLabel}`
+    ? `${hoveredPinTooltip.componentAlias}: ${hoveredPinTooltip.pinLabel}`
     : hoveredHoleOccupancy
-      ? `${hoveredHoleOccupancy.componentAlias} — ${hoveredHoleOccupancy.pinLabel}`
+      ? `${hoveredHoleOccupancy.componentAlias}: ${hoveredHoleOccupancy.pinLabel}`
       : null;
 
   const activePinHoleCoord = hoveredPinTooltip
@@ -209,8 +209,6 @@ export function AppShell({
           className={styles.rightPanel}
           aria-label="Inspetor e Netlist"
         >
-          <h2 className={styles.panelHeader}>Inspetor Técnico & Netlist</h2>
-
           {selectedWireId ? (
             <WireInspector wiringController={wiringController} />
           ) : (

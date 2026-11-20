@@ -39,7 +39,7 @@ export function PdfPreviewModal({
       <header className={styles.controlBar}>
         <div className={styles.titleGroup}>
           <h2 className={styles.modalTitle}>
-            Relatório Técnico A4 Vetorial — Pré-visualização de Impressão / PDF
+            Relatório técnico A4
           </h2>
 
           <label className={styles.checkboxLabel}>
@@ -48,7 +48,7 @@ export function PdfPreviewModal({
               checked={includeCppDefines}
               onChange={toggleIncludeCppDefines}
             />
-            <span>Incluir bloco de #define (C++) no relatório</span>
+            <span>Incluir #define (C++)</span>
           </label>
         </div>
 
@@ -57,7 +57,7 @@ export function PdfPreviewModal({
             variant="activeConfirm"
             onClick={handlePrintPdf}
           >
-            🖨 Imprimir / Salvar PDF Vetorial
+            Imprimir / Salvar PDF
           </Button>
 
           <Button

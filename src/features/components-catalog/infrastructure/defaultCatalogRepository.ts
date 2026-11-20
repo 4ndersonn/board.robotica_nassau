@@ -156,7 +156,7 @@ const TB6612FNG_DEFINITION: ComponentDefinition = {
   id: 'tb6612fng-driver',
   name: 'Ponte H TB6612FNG',
   category: 'Drivers de Motor',
-  description: 'Driver duplo para motores DC (2 fileiras de 8 pinos — módulo vermelho)',
+  description: 'Driver duplo para motores DC (2 fileiras de 8 pinos, módulo vermelho)',
   widthHoles: 8,
   heightHoles: 8,
   color: '#7f1d1d',

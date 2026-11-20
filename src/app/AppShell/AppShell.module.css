@@ -34,57 +34,6 @@
   gap: var(--space-3);
 }
 
-.panelHeader {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-text-secondary);
-  padding-bottom: var(--space-2);
-  border-bottom: 1px solid var(--color-border-subtle);
-}
-
-.placeholderCard {
-  padding: var(--space-3);
-  border-radius: var(--radius-md);
-  background-color: var(--color-bg-elevated);
-  border: 1px dashed var(--color-border-strong);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.placeholderTitle {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--color-text-primary);
-}
-
-.placeholderText {
-  font-size: 12px;
-  color: var(--color-text-secondary);
-  line-height: 1.5;
-}
-
-.inspectorItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6px 0;
-  border-bottom: 1px solid var(--color-border-subtle);
-  font-size: 12px;
-}
-
-.inspectorKey {
-  color: var(--color-text-secondary);
-}
-
-.inspectorValue {
-  font-family: var(--font-mono);
-  color: var(--color-text-primary);
-  font-weight: 600;
-}
-
 @media print {
   .shellRoot {
     height: auto;
