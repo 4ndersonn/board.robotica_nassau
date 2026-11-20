@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import {
   BOARD_5X7_SPEC,
   getHoleCenterPx,
@@ -16,7 +17,7 @@ export interface BoardHoleProps {
   readonly onDoubleClickHole?: (coord: HoleCoordinate) => void;
 }
 
-export function BoardHole({
+export const BoardHole = memo(function BoardHole({
   coordinate,
   viewMode,
   isHovered,
@@ -90,4 +91,4 @@ export function BoardHole({
       />
     </g>
   );
-}
+});

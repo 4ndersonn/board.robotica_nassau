@@ -43,7 +43,7 @@ export function App() {
   const customController = useCustomComponents({
     storagePort: localStorageCustomCatalogRepository,
     filePort: jsonLibraryAdapter,
-    placedComponents: placedComponentsRef.current,
+    getPlacedComponents: () => placedComponentsRef.current,
     onRemovePlacedByDefinitionId: handleRemovePlacedByDefinitionId,
   });
 
@@ -72,16 +72,26 @@ export function App() {
     () => ({
       placedComponents: catalogController.placedComponents,
       wires: wiringController.wires,
+      customComponentDefinitions: customController.customDefinitions,
     }),
-    [catalogController.placedComponents, wiringController.wires],
+    [
+      catalogController.placedComponents,
+      customController.customDefinitions,
+      wiringController.wires,
+    ],
   );
 
   const handleApplyBoardState = useCallback(
     (snapshot: BoardStateSnapshot) => {
+      if (snapshot.customComponentDefinitions) {
+        customController.mergeEmbeddedDefinitions(
+          snapshot.customComponentDefinitions,
+        );
+      }
       catalogController.replacePlacedComponents(snapshot.placedComponents);
       wiringController.replaceWires(snapshot.wires);
     },
-    [catalogController, wiringController],
+    [catalogController, customController, wiringController],
   );
 
   const persistenceController = useProjectPersistence({

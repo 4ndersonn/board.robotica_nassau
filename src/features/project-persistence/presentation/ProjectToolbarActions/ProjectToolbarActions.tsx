@@ -23,6 +23,8 @@ export function ProjectToolbarActions({
     openMetadataModal,
     handleExportFile,
     handleImportFile,
+    persistenceFeedback,
+    isMetadataModalOpen,
   } = persistenceController;
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -109,6 +111,10 @@ export function ProjectToolbarActions({
         className={styles.hiddenFileInput}
         onChange={handleFileChange}
       />
+
+      {persistenceFeedback && !isMetadataModalOpen && (
+        <span className={styles.inlineFeedback}>{persistenceFeedback}</span>
+      )}
     </div>
   );
 }

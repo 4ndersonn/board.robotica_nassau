@@ -16,22 +16,52 @@
 
 .leftPanel {
   width: var(--sidebar-left-width);
+  flex-shrink: 0;
   background-color: var(--color-bg-panel);
   border-right: 1px solid var(--color-border-subtle);
   display: flex;
   flex-direction: column;
-  padding: var(--space-4);
+  padding: var(--space-3);
   gap: var(--space-3);
+  overflow: hidden;
 }
 
 .rightPanel {
   width: var(--sidebar-right-width);
+  flex-shrink: 0;
   background-color: var(--color-bg-panel);
   border-left: 1px solid var(--color-border-subtle);
   display: flex;
   flex-direction: column;
-  padding: var(--space-4);
+  padding: var(--space-3);
   gap: var(--space-3);
+  overflow: hidden;
+}
+
+@media (max-width: 960px) {
+  .shellRoot {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+
+  .workspaceBody {
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .leftPanel {
+    width: 100%;
+    height: 360px;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .rightPanel {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--color-border-subtle);
+  }
 }
 
 @media print {

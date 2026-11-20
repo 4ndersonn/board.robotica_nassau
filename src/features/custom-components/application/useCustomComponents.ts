@@ -68,13 +68,13 @@ export interface CustomComponentsController {
 export function useCustomComponents(params: {
   readonly storagePort: CustomCatalogStoragePort;
   readonly filePort: CustomLibraryFilePort;
-  readonly placedComponents: readonly PlacedComponent[];
+  readonly getPlacedComponents: () => readonly PlacedComponent[];
   readonly onRemovePlacedByDefinitionId: (definitionId: string) => void;
 }): CustomComponentsController {
   const {
     storagePort,
     filePort,
-    placedComponents,
+    getPlacedComponents,
     onRemovePlacedByDefinitionId,
   } = params;
 
@@ -286,10 +286,11 @@ export function useCustomComponents(params: {
 
   const handleDeleteCustom = useCallback(
     (definitionId: string) => {
+      const currentPlaced = getPlacedComponents();
       const initialAttempt = deleteCustomComponent({
         targetId: definitionId,
         existingDefinitions: customDefinitions,
-        placedComponents,
+        placedComponents: currentPlaced,
         forceIfInUse: false,
       });
 
@@ -304,7 +305,7 @@ export function useCustomComponents(params: {
         const forced = deleteCustomComponent({
           targetId: definitionId,
           existingDefinitions: customDefinitions,
-          placedComponents,
+          placedComponents: currentPlaced,
           forceIfInUse: true,
         });
         setCustomDefinitions(forced.nextDefinitions);
@@ -318,7 +319,7 @@ export function useCustomComponents(params: {
       setCustomDefinitions(initialAttempt.nextDefinitions);
       setLibraryFeedback('Componente customizado excluído.');
     },
-    [customDefinitions, onRemovePlacedByDefinitionId, placedComponents],
+    [customDefinitions, getPlacedComponents, onRemovePlacedByDefinitionId],
   );
 
   const handleExportLibrary = useCallback(() => {

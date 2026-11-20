@@ -6,6 +6,11 @@ import '@core/styles/reset.css';
 import '@core/styles/typography.css';
 
 import { App } from '@app/App';
+import { runDomainSelfChecks } from '@core/domain.test';
+
+if (import.meta.env.DEV) {
+  runDomainSelfChecks();
+}
 
 const rootElement = document.getElementById('root');
 

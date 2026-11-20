@@ -55,7 +55,7 @@
 .colorBadge {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
 }
 
 .colorDot {

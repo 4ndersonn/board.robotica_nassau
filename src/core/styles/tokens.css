@@ -50,8 +50,8 @@
   --space-6: 24px;
 
   --header-height: 54px;
-  --sidebar-left-width: 260px;
-  --sidebar-right-width: 340px;
+  --sidebar-left-width: clamp(220px, 20vw, 310px);
+  --sidebar-right-width: clamp(250px, 24vw, 390px);
 
   /* Radius & Shadows */
   --radius-sm: 4px;

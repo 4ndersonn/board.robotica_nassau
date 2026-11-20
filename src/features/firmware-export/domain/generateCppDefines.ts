@@ -78,8 +78,8 @@ function sanitizeMacroToken(raw: string): string {
 
 function buildTargetMacroName(target: NetlistEndpointInfo): string {
   if (target.componentAlias && target.pinLabel) {
-    const compToken = sanitizeMacroToken(target.componentAlias);
-    const pinToken = sanitizeMacroToken(target.pinLabel);
+    const compToken = sanitizeMacroToken(target.componentAlias) || 'MOD';
+    const pinToken = sanitizeMacroToken(target.pinLabel) || 'PIN';
     return `${compToken}_${pinToken}`.replace(/_+/g, '_');
   }
 

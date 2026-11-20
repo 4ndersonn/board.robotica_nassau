@@ -79,6 +79,12 @@ export function CatalogSidebar({
             className={styles.hiddenInput}
             onChange={handleImportFileChange}
           />
+
+          {customController.libraryFeedback && (
+            <div className={styles.feedbackBanner}>
+              {customController.libraryFeedback}
+            </div>
+          )}
         </div>
       )}
 

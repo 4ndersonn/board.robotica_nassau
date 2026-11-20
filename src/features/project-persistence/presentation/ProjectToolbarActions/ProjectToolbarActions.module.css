@@ -15,3 +15,16 @@
 .hiddenFileInput {
   display: none;
 }
+
+.inlineFeedback {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-subtle);
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

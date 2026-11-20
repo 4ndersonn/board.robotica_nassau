@@ -2,8 +2,6 @@ import type {
   ComponentDefinition,
   ComponentRotation,
   MountingSide,
-  PinDefinition,
-  PinType,
   PlacedComponent,
 } from '@features/components-catalog/domain';
 import type {
@@ -13,6 +11,7 @@ import type {
   WireRoutingStyle,
   WireSide,
 } from '@features/wiring/domain';
+import { parseCustomComponentDefinition } from '@features/custom-components/infrastructure/LocalStorageCustomCatalogRepository';
 import type { ProjectDocument, ProjectMetadata } from './entities';
 
 export interface ProjectValidationResult {
@@ -21,6 +20,8 @@ export interface ProjectValidationResult {
   readonly error?: string;
 }
 
+const BOARD_COLS = 18;
+const BOARD_ROWS = 24;
 const VALID_ROTATIONS: ReadonlySet<number> = new Set([0, 90, 180, 270]);
 const VALID_SIDES: ReadonlySet<string> = new Set(['top', 'bottom']);
 const VALID_WIRE_COLORS: ReadonlySet<string> = new Set([
@@ -37,71 +38,18 @@ const VALID_ROUTING_STYLES: ReadonlySet<string> = new Set([
   'orthogonal',
   'free',
 ]);
-const VALID_PIN_TYPES: ReadonlySet<string> = new Set([
-  'power',
-  'gnd',
-  'signal',
-  'motor',
-]);
 
-function validateCustomDefinition(raw: unknown): ComponentDefinition | null {
-  if (!isRecord(raw)) {
-    return null;
-  }
-
-  if (
-    typeof raw.id !== 'string' ||
-    typeof raw.name !== 'string' ||
-    typeof raw.category !== 'string' ||
-    typeof raw.description !== 'string' ||
-    typeof raw.widthHoles !== 'number' ||
-    typeof raw.heightHoles !== 'number' ||
-    typeof raw.color !== 'string' ||
-    typeof raw.accentColor !== 'string' ||
-    !Array.isArray(raw.pins) ||
-    raw.pins.length < 1
-  ) {
-    return null;
-  }
-
-  const pins: PinDefinition[] = [];
-  for (const rawPin of raw.pins) {
-    if (!isRecord(rawPin)) {
-      return null;
-    }
-
-    if (
-      typeof rawPin.id !== 'string' ||
-      typeof rawPin.col !== 'number' ||
-      typeof rawPin.row !== 'number' ||
-      typeof rawPin.label !== 'string' ||
-      typeof rawPin.type !== 'string' ||
-      !VALID_PIN_TYPES.has(rawPin.type)
-    ) {
-      return null;
-    }
-
-    pins.push({
-      id: rawPin.id,
-      col: rawPin.col,
-      row: rawPin.row,
-      label: rawPin.label,
-      type: rawPin.type as PinType,
-    });
-  }
-
-  return {
-    id: raw.id,
-    name: raw.name,
-    category: raw.category,
-    description: raw.description,
-    widthHoles: raw.widthHoles,
-    heightHoles: raw.heightHoles,
-    color: raw.color,
-    accentColor: raw.accentColor,
-    pins,
-    isCustom: true,
-  };
+function isValidGridCoord(col: unknown, row: unknown): boolean {
+  return (
+    typeof col === 'number' &&
+    typeof row === 'number' &&
+    Number.isInteger(col) &&
+    Number.isInteger(row) &&
+    col >= 0 &&
+    col < BOARD_COLS &&
+    row >= 0 &&
+    row < BOARD_ROWS
+  );
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -143,8 +91,7 @@ function validatePlacedComponent(raw: unknown): PlacedComponent | null {
     typeof raw.instanceId !== 'string' ||
     typeof raw.definitionId !== 'string' ||
     typeof raw.alias !== 'string' ||
-    typeof raw.anchorCol !== 'number' ||
-    typeof raw.anchorRow !== 'number' ||
+    !isValidGridCoord(raw.anchorCol, raw.anchorRow) ||
     typeof raw.rotation !== 'number' ||
     !VALID_ROTATIONS.has(raw.rotation) ||
     typeof raw.side !== 'string' ||
@@ -157,25 +104,21 @@ function validatePlacedComponent(raw: unknown): PlacedComponent | null {
     instanceId: raw.instanceId,
     definitionId: raw.definitionId,
     alias: raw.alias,
-    anchorCol: raw.anchorCol,
-    anchorRow: raw.anchorRow,
+    anchorCol: raw.anchorCol as number,
+    anchorRow: raw.anchorRow as number,
     rotation: raw.rotation as ComponentRotation,
     side: raw.side as MountingSide,
   };
 }
 
 function validateWirePoint(raw: unknown): WirePoint | null {
-  if (!isRecord(raw)) {
-    return null;
-  }
-
-  if (typeof raw.col !== 'number' || typeof raw.row !== 'number') {
+  if (!isRecord(raw) || !isValidGridCoord(raw.col, raw.row)) {
     return null;
   }
 
   return {
-    col: raw.col,
-    row: raw.row,
+    col: raw.col as number,
+    row: raw.row as number,
   };
 }
 
@@ -290,7 +233,7 @@ export function validateProjectDocument(
   const customComponentDefinitions: ComponentDefinition[] = [];
   if (Array.isArray(candidate.customComponentDefinitions)) {
     for (const rawCustom of candidate.customComponentDefinitions) {
-      const validCustom = validateCustomDefinition(rawCustom);
+      const validCustom = parseCustomComponentDefinition(rawCustom);
       if (!validCustom) {
         return {
           isValid: false,

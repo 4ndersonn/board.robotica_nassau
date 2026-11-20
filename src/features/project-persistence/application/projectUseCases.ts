@@ -61,18 +61,12 @@ export function areBoardSnapshotsEqual(
   a: BoardStateSnapshot,
   b: BoardStateSnapshot,
 ): boolean {
-  if (a === b) {
-    return true;
-  }
-
-  if (
-    a.placedComponents.length !== b.placedComponents.length ||
-    a.wires.length !== b.wires.length
-  ) {
-    return false;
-  }
-
-  return JSON.stringify(a) === JSON.stringify(b);
+  return (
+    a === b ||
+    (a.placedComponents === b.placedComponents &&
+      a.wires === b.wires &&
+      a.customComponentDefinitions === b.customComponentDefinitions)
+  );
 }
 
 export function recordHistorySnapshot(

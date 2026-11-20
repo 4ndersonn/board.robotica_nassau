@@ -10,10 +10,16 @@
   gap: var(--space-3);
 }
 
+@media (max-width: 520px) {
+  .rowTwoCols {
+    grid-template-columns: 1fr;
+  }
+}
+
 .fieldGroup {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
 }
 
 .label {

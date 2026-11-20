@@ -34,7 +34,6 @@ export interface ProjectPersistenceController {
   readonly handleImportFile: (file: File) => Promise<void>;
   readonly handleResetProject: () => void;
   readonly persistenceFeedback: string | null;
-  readonly clearPersistenceFeedback: () => void;
 }
 
 export function useProjectPersistence(params: {
@@ -64,7 +63,10 @@ export function useProjectPersistence(params: {
     initialLoadedDoc.metadata,
   );
   const [history, setHistory] = useState<HistoryStackState>(() =>
-    createInitialHistoryState(initialLoadedDoc.boardState),
+    createInitialHistoryState({
+      ...initialLoadedDoc.boardState,
+      customComponentDefinitions: initialLoadedDoc.customComponentDefinitions,
+    }),
   );
   const [isMetadataModalOpen, setIsMetadataModalOpen] = useState(false);
   const [persistenceFeedback, setPersistenceFeedback] = useState<string | null>(
@@ -96,7 +98,11 @@ export function useProjectPersistence(params: {
       return;
     }
 
-    setHistory((prev) => recordHistorySnapshot(prev, currentBoardState));
+    const timer = window.setTimeout(() => {
+      setHistory((prev) => recordHistorySnapshot(prev, currentBoardState));
+    }, 250);
+
+    return () => window.clearTimeout(timer);
   }, [currentBoardState, hasHydratedInitial]);
 
   useEffect(() => {
@@ -149,7 +155,12 @@ export function useProjectPersistence(params: {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       const activeTag = document.activeElement?.tagName;
-      if (activeTag === 'INPUT' || activeTag === 'TEXTAREA') {
+      if (
+        activeTag === 'INPUT' ||
+        activeTag === 'TEXTAREA' ||
+        activeTag === 'SELECT' ||
+        document.querySelector('[role="dialog"]')
+      ) {
         return;
       }
 
@@ -196,8 +207,12 @@ export function useProjectPersistence(params: {
           onApplyCustomDefinitions(importedDoc.customComponentDefinitions);
         }
         setMetadata(importedDoc.metadata);
-        setHistory(createInitialHistoryState(importedDoc.boardState));
-        onApplyBoardState(importedDoc.boardState);
+        const importedSnapshot: BoardStateSnapshot = {
+          ...importedDoc.boardState,
+          customComponentDefinitions: importedDoc.customComponentDefinitions,
+        };
+        setHistory(createInitialHistoryState(importedSnapshot));
+        onApplyBoardState(importedSnapshot);
         saveProject(storagePort, importedDoc);
         setPersistenceFeedback(
           `Projeto "${importedDoc.metadata.robotName}" carregado com sucesso.`,
@@ -229,10 +244,6 @@ export function useProjectPersistence(params: {
     setIsMetadataModalOpen(false);
   }, []);
 
-  const clearPersistenceFeedback = useCallback(() => {
-    setPersistenceFeedback(null);
-  }, []);
-
   return {
     metadata,
     updateMetadata,
@@ -247,6 +258,5 @@ export function useProjectPersistence(params: {
     handleImportFile,
     handleResetProject,
     persistenceFeedback,
-    clearPersistenceFeedback,
   };
 }

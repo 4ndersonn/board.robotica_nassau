@@ -193,7 +193,7 @@ function PrintableVectorBoardSvg({
               x={bodyBox.centerX}
               y={bodyBox.centerY}
               fontSize={11}
-              fontWeight={800}
+              fontWeight={600}
               fill={isOppositeSide ? '#71717a' : '#09090b'}
               textAnchor="middle"
               dominantBaseline="central"

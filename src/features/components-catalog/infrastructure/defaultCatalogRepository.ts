@@ -292,15 +292,8 @@ const DEFAULT_CATALOG_LIST: readonly ComponentDefinition[] = [
   SLIDE_SWITCH_3P_DEFINITION,
 ];
 
-const DEFAULT_CATALOG_MAP = new Map<string, ComponentDefinition>(
-  DEFAULT_CATALOG_LIST.map((item) => [item.id, item]),
-);
-
 export const defaultCatalogRepository: CatalogRepository = {
   getAllDefinitions(): readonly ComponentDefinition[] {
     return DEFAULT_CATALOG_LIST;
-  },
-  getDefinitionById(definitionId: string): ComponentDefinition | undefined {
-    return DEFAULT_CATALOG_MAP.get(definitionId);
   },
 };

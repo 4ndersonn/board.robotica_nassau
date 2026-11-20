@@ -16,6 +16,7 @@ export interface ProjectMetadata {
 export interface BoardStateSnapshot {
   readonly placedComponents: readonly PlacedComponent[];
   readonly wires: readonly Wire[];
+  readonly customComponentDefinitions?: readonly ComponentDefinition[];
 }
 
 export interface ProjectDocument {

@@ -9,11 +9,13 @@
 }
 
 .controlBar {
-  height: 54px;
+  min-height: 54px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 0 var(--space-5);
+  gap: var(--space-2) var(--space-3);
+  padding: var(--space-2) var(--space-5);
   background-color: var(--color-bg-panel);
   border-bottom: 1px solid var(--color-border-strong);
   flex-shrink: 0;

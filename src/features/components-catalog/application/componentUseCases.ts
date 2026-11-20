@@ -58,17 +58,20 @@ export function placeComponent(params: {
     };
   }
 
-  const sameTypeCount = params.existingComponents.filter(
-    (item) => item.definitionId === params.definition.id,
-  ).length;
+  const usedAliases = new Set(
+    params.existingComponents.map((item) => item.alias.trim()),
+  );
+  let nextNumber = 1;
+  let alias = params.definition.name;
+  while (usedAliases.has(alias)) {
+    nextNumber += 1;
+    alias = `${params.definition.name} #${nextNumber}`;
+  }
 
   const createdInstance: PlacedComponent = {
     instanceId: `${params.definition.id}-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
     definitionId: params.definition.id,
-    alias:
-      sameTypeCount === 0
-        ? params.definition.name
-        : `${params.definition.name} #${sameTypeCount + 1}`,
+    alias,
     anchorCol: params.anchorCol,
     anchorRow: params.anchorRow,
     rotation: params.rotation,

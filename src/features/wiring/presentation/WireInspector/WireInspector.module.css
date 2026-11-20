@@ -50,7 +50,7 @@
 .colorBtn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   padding: 4px 8px;
   border-radius: var(--radius-sm);
   background-color: var(--color-bg-canvas);

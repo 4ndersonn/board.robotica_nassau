@@ -8,10 +8,8 @@ import {
 
 export interface BoardViewModeController {
   readonly viewMode: BoardViewMode;
-  readonly isMirroredBottom: boolean;
   readonly hoveredHole: DisplayHoleCoordinate | null;
   readonly setViewMode: (mode: BoardViewMode) => void;
-  readonly toggleViewMode: () => void;
   readonly hoverHole: (coord: HoleCoordinate | null) => void;
 }
 
@@ -22,10 +20,6 @@ export function useBoardViewMode(): BoardViewModeController {
 
   const setViewMode = useCallback((mode: BoardViewMode) => {
     setViewModeState(mode);
-  }, []);
-
-  const toggleViewMode = useCallback(() => {
-    setViewModeState((prev) => (prev === 'top' ? 'bottom' : 'top'));
   }, []);
 
   const hoverHole = useCallback((coord: HoleCoordinate | null) => {
@@ -41,10 +35,8 @@ export function useBoardViewMode(): BoardViewModeController {
 
   return {
     viewMode,
-    isMirroredBottom: viewMode === 'bottom',
     hoveredHole,
     setViewMode,
-    toggleViewMode,
     hoverHole,
   };
 }
