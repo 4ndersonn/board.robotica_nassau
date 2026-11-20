@@ -53,7 +53,7 @@ export function BoardStatusHud({
 
       <div className={styles.group}>
         <span className={styles.hint}>
-          {`${BOARD_5X7_SPEC.columns}×${BOARD_5X7_SPEC.rows} (${BOARD_5X7_SPEC.pitchMm} mm) • R: Girar 90° • Del: Remover • Scroll: Zoom`}
+          {`${BOARD_5X7_SPEC.columns}×${BOARD_5X7_SPEC.rows} (${BOARD_5X7_SPEC.pitchMm} mm) • H / Espaço: Mover • 2 dedos: Mover • Pinça / Ctrl+Scroll: Zoom`}
         </span>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import {
   useBoardViewMode,
   useBoardViewport,
@@ -67,6 +67,12 @@ export function App() {
     onExitComponentPlacement: catalogController.cancelPlacement,
     onClearComponentSelection: () => catalogController.selectComponent(null),
   });
+
+  useEffect(() => {
+    viewportController.setIsHandToolActive(
+      wiringController.toolMode === 'hand',
+    );
+  }, [viewportController, wiringController.toolMode]);
 
   const currentBoardState = useMemo<BoardStateSnapshot>(
     () => ({

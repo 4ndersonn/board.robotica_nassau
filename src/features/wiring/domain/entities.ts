@@ -19,7 +19,7 @@ export type WireRoutingStyle = 'orthogonal' | 'free';
 
 export type WireSide = 'top' | 'bottom';
 
-export type EditorToolMode = 'select' | 'wire';
+export type EditorToolMode = 'select' | 'wire' | 'hand';
 
 /**
  * Ponto lógico de um fio no grid da placa (sempre em coordenadas da Vista Superior: col 0..17, row 0..23).

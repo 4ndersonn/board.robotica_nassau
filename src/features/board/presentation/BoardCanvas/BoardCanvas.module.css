@@ -24,15 +24,21 @@
   cursor: default;
 }
 
-.cursorGrab {
-  cursor: grab;
+.cursorGrab,
+.cursorGrab * {
+  cursor: grab !important;
 }
 
-.cursorGrabbing {
-  cursor: grabbing;
+.cursorGrabbing,
+.cursorGrabbing * {
+  cursor: grabbing !important;
 }
 
 .transformStage {
   transform-origin: center center;
   will-change: transform;
+}
+
+.stageInteractiveDisabled {
+  pointer-events: none;
 }

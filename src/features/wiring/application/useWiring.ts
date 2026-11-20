@@ -107,10 +107,11 @@ export function useWiring(params: {
   const setToolMode = useCallback(
     (mode: EditorToolMode) => {
       setToolModeState(mode);
-      if (mode === 'wire') {
+      if (mode === 'wire' || mode === 'hand') {
         onExitComponentPlacement();
         onClearComponentSelection();
         setSelectedWireId(null);
+        setActiveDraft(null);
       } else {
         setActiveDraft(null);
       }
@@ -284,7 +285,11 @@ export function useWiring(params: {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       const activeTag = document.activeElement?.tagName;
-      if (activeTag === 'INPUT' || activeTag === 'TEXTAREA') {
+      if (
+        activeTag === 'INPUT' ||
+        activeTag === 'TEXTAREA' ||
+        activeTag === 'SELECT'
+      ) {
         return;
       }
 
@@ -294,6 +299,9 @@ export function useWiring(params: {
       } else if (event.key === 'w' || event.key === 'W') {
         event.preventDefault();
         setToolMode('wire');
+      } else if (event.key === 'h' || event.key === 'H') {
+        event.preventDefault();
+        setToolMode('hand');
       } else if (event.key === 'Enter' && activeDraft) {
         event.preventDefault();
         commitActiveDraft();

@@ -59,7 +59,10 @@ export function TopBar({
         onOpenPdfPreview={onOpenPdfPreview}
       />
 
-      <WireToolbarControls wiringController={wiringController} />
+      <WireToolbarControls
+        wiringController={wiringController}
+        isSpaceTemporaryHand={viewportController.isSpacePressed}
+      />
 
       <nav
         className={styles.viewSwitcher}

@@ -30,8 +30,9 @@ export function BoardCanvas({
   const { viewMode, hoveredHole, hoverHole } = viewModeController;
   const {
     cssTransform,
+    gridBackgroundPosition,
     isPanning,
-    isSpacePressed,
+    isHandNavigationMode,
     handleWheel,
     handleMouseDown,
     handleMouseMove,
@@ -40,15 +41,23 @@ export function BoardCanvas({
 
   const cursorClass = isPanning
     ? styles.cursorGrabbing
-    : isSpacePressed
+    : isHandNavigationMode
       ? styles.cursorGrab
       : styles.cursorDefault;
 
   const containerClassName = [styles.canvasViewport, cursorClass].join(' ');
 
+  const stageClassName = [
+    styles.transformStage,
+    isHandNavigationMode || isPanning ? styles.stageInteractiveDisabled : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
     <section
       className={containerClassName}
+      style={{ backgroundPosition: gridBackgroundPosition }}
       onWheel={handleWheel}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
@@ -57,7 +66,7 @@ export function BoardCanvas({
       aria-label="Área de trabalho CAD da placa 5x7 cm"
     >
       <div
-        className={styles.transformStage}
+        className={stageClassName}
         style={{ transform: cssTransform }}
       >
         <BoardSvg
