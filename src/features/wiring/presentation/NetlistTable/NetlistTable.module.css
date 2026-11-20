@@ -13,6 +13,7 @@
   justify-content: space-between;
   padding-bottom: var(--space-1);
   border-bottom: 1px solid var(--color-border-subtle);
+  flex-shrink: 0;
 }
 
 .title {
@@ -30,15 +31,40 @@
   border-radius: var(--radius-sm);
   background-color: var(--color-bg-elevated);
   color: var(--color-text-secondary);
+  flex-shrink: 0;
 }
 
 .tableScroll {
-  overflow-y: auto;
-  overflow-x: auto;
   flex: 1;
+  min-height: 0;
+  overflow: auto;
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-md);
   background-color: var(--color-bg-elevated);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+
+.tableScroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.tableScroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tableScroll::-webkit-scrollbar-thumb {
+  background-color: var(--color-border-subtle);
+  border-radius: 999px;
+}
+
+.tableScroll::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-border-strong);
+}
+
+.tableScroll::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 .table {
@@ -51,10 +77,11 @@
 .table th {
   position: sticky;
   top: 0;
+  z-index: 1;
   background-color: var(--color-bg-panel);
   color: var(--color-text-secondary);
   font-weight: 600;
-  padding: 6px 8px;
+  padding: 7px 10px;
   border-bottom: 1px solid var(--color-border-subtle);
   white-space: nowrap;
 }
@@ -62,7 +89,7 @@
 .row {
   cursor: pointer;
   border-bottom: 1px solid var(--color-border-subtle);
-  transition: background-color 0.12s ease;
+  transition: background-color 150ms ease;
 }
 
 .row:hover {
@@ -73,8 +100,12 @@
   background-color: var(--color-accent-selection-soft);
 }
 
+.rowSelected:hover {
+  background-color: var(--color-accent-selection-soft);
+}
+
 .table td {
-  padding: 6px 8px;
+  padding: 7px 10px;
   vertical-align: top;
   color: var(--color-text-primary);
 }
@@ -83,12 +114,13 @@
   font-family: var(--font-mono);
   font-size: 10.5px;
   line-height: 1.35;
+  min-width: 130px;
 }
 
 .colorCell {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   white-space: nowrap;
 }
 
@@ -101,13 +133,16 @@
 
 .sideCell {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 10.5px;
   color: var(--color-text-secondary);
+  white-space: nowrap;
 }
 
 .noteCell {
   color: var(--color-text-secondary);
   font-size: 10.5px;
+  line-height: 1.35;
+  min-width: 120px;
 }
 
 .emptyState {

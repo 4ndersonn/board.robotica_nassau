@@ -38,7 +38,7 @@ export function NetlistTable({
                 <th>Destino</th>
                 <th>Cor</th>
                 <th>Lado</th>
-                <th>Obs.</th>
+                <th>Observação</th>
               </tr>
             </thead>
             <tbody>

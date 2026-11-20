@@ -1,4 +1,6 @@
 :root {
+  color-scheme: dark;
+
   /* Bancada / CAD Dark Neutrals */
   --color-bg-canvas: #121214;
   --color-bg-panel: #1e1e22;
