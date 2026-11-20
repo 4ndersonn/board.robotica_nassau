@@ -16,12 +16,16 @@
 
 .leftPanel {
   width: var(--sidebar-left-width);
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
   background-color: var(--color-bg-panel);
   border-right: 1px solid var(--color-border-subtle);
   display: flex;
   flex-direction: column;
-  padding: var(--space-4);
+  padding: var(--space-4) var(--space-3) 0 var(--space-4);
   gap: var(--space-3);
+  flex-shrink: 0;
 }
 
 .rightPanel {

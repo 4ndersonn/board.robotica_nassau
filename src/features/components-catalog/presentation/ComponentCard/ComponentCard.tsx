@@ -32,6 +32,7 @@ export function ComponentCard({
         className={styles.cardMainBtn}
         onClick={() => onSelectForPlacement(definition.id)}
         aria-pressed={isActivePlacement}
+        title={`${definition.name} — ${definition.description}`}
       >
         <div className={styles.headerRow}>
           <div className={styles.titleGroup}>
@@ -49,14 +50,33 @@ export function ComponentCard({
             <span className={styles.badge}>
               {`${definition.widthHoles}×${definition.heightHoles}`}
             </span>
+            <span
+              className={styles.actionHint}
+              aria-hidden="true"
+            >
+              {isActivePlacement ? '✓' : '+'}
+            </span>
           </div>
         </div>
 
-        <p className={styles.description}>{definition.description}</p>
+        <p
+          className={styles.description}
+          title={definition.description}
+        >
+          {definition.description}
+        </p>
 
         <div className={styles.metaRow}>
           <span>{definition.category}</span>
-          <span>{`${definition.pins.length} pinos`}</span>
+          <span
+            className={
+              isActivePlacement ? styles.activeStatusLabel : undefined
+            }
+          >
+            {isActivePlacement
+              ? 'Selecionado • Clique na placa'
+              : `${definition.pins.length} pinos`}
+          </span>
         </div>
       </button>
 

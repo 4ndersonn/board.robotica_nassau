@@ -82,14 +82,16 @@ export function CatalogSidebar({
         </div>
       )}
 
-      <input
-        type="search"
-        className={styles.searchInput}
-        placeholder="Buscar módulo (ESP32, TB6612, KRE...)"
-        value={searchQuery}
-        onChange={(event) => setSearchQuery(event.target.value)}
-        aria-label="Buscar componente no catálogo"
-      />
+      <div className={styles.searchWrapper}>
+        <input
+          type="search"
+          className={styles.searchInput}
+          placeholder="Buscar módulo (ESP32, TB6612, KRE...)"
+          value={searchQuery}
+          onChange={(event) => setSearchQuery(event.target.value)}
+          aria-label="Buscar componente no catálogo"
+        />
+      </div>
 
       {activePlacementDefId && (
         <div className={styles.placementControls}>
