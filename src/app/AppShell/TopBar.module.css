@@ -1,76 +1,141 @@
 .topBar {
   height: var(--header-height);
+  min-height: 54px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 var(--space-4);
+  gap: var(--space-3);
+  padding: 0 var(--space-3);
   background-color: var(--color-bg-panel);
   border-bottom: 1px solid var(--color-border-subtle);
   z-index: 10;
+  flex-shrink: 0;
 }
 
 .brandGroup {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-2);
+  min-width: 195px;
+  max-width: 245px;
+  flex-shrink: 0;
 }
 
 .brandBadge {
-  padding: 4px 8px;
+  padding: 4px 7px;
   border-radius: var(--radius-sm);
   background-color: var(--color-bg-elevated);
   border: 1px solid var(--color-border-strong);
   color: var(--color-accent-active);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
+  line-height: 1.2;
   letter-spacing: 0.04em;
+  flex-shrink: 0;
 }
 
 .projectInfo {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
 }
 
 .projectName {
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
+  line-height: 1.25;
   color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .projectSpec {
-  font-size: 11px;
+  font-size: 10.5px;
+  line-height: 1.25;
   color: var(--color-text-muted);
   font-family: var(--font-mono);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toolsScrollArea {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+
+.toolsScrollArea::-webkit-scrollbar {
+  height: 4px;
+}
+
+.toolsScrollArea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.toolsScrollArea::-webkit-scrollbar-thumb {
+  background-color: var(--color-border-subtle);
+  border-radius: 999px;
+}
+
+.toolsScrollArea::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-border-strong);
+}
+
+.rightControlsGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
 }
 
 .viewSwitcher {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
-  padding: 3px;
+  gap: 3px;
+  padding: 2px;
   border-radius: var(--radius-md);
   background-color: var(--color-bg-canvas);
   border: 1px solid var(--color-border-subtle);
+  flex-shrink: 0;
 }
 
 .zoomControls {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: 4px;
+  flex-shrink: 0;
 }
 
 .zoomReadout {
-  min-width: 54px;
+  min-width: 46px;
   text-align: center;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--color-text-primary);
-  padding: 4px 8px;
+  padding: 4px 6px;
   background-color: var(--color-bg-canvas);
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-sm);
+}
+
+.compactBtn {
+  padding: 5px 9px;
+  font-size: 11.5px;
+  white-space: nowrap;
 }
 
 @media print {

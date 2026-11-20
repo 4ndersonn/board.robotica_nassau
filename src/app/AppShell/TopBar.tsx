@@ -38,81 +38,96 @@ export function TopBar({
   } = viewportController;
 
   const { metadata } = persistenceController;
+  const fullTitleText = `${metadata.robotName} (v${metadata.version})`;
+  const fullSpecText = `${metadata.category} • 5×7 cm (18×24)`;
 
   return (
     <header className={styles.topBar}>
       <div className={styles.brandGroup}>
         <span className={styles.brandBadge}>ROBOBOARD</span>
         <div className={styles.projectInfo}>
-          <h1 className={styles.projectName}>
-            {`${metadata.robotName} (v${metadata.version})`}
+          <h1
+            className={styles.projectName}
+            title={fullTitleText}
+          >
+            {fullTitleText}
           </h1>
-          <span className={styles.projectSpec}>
-            {`${metadata.category} • 5×7 cm (18×24)`}
+          <span
+            className={styles.projectSpec}
+            title={fullSpecText}
+          >
+            {fullSpecText}
           </span>
         </div>
       </div>
 
-      <ProjectToolbarActions
-        persistenceController={persistenceController}
-        onOpenFirmwareModal={onOpenFirmwareModal}
-        onOpenPdfPreview={onOpenPdfPreview}
-      />
+      <div className={styles.toolsScrollArea}>
+        <ProjectToolbarActions
+          persistenceController={persistenceController}
+          onOpenFirmwareModal={onOpenFirmwareModal}
+          onOpenPdfPreview={onOpenPdfPreview}
+        />
 
-      <WireToolbarControls
-        wiringController={wiringController}
-        isSpaceTemporaryHand={viewportController.isSpacePressed}
-      />
+        <WireToolbarControls
+          wiringController={wiringController}
+          isSpaceTemporaryHand={viewportController.isSpacePressed}
+        />
+      </div>
 
-      <nav
-        className={styles.viewSwitcher}
-        aria-label="Alternador de vista da placa"
-      >
-        <Button
-          variant={viewMode === 'top' ? 'activeConfirm' : 'secondary'}
-          onClick={() => setViewMode('top')}
-          aria-pressed={viewMode === 'top'}
+      <div className={styles.rightControlsGroup}>
+        <nav
+          className={styles.viewSwitcher}
+          aria-label="Alternador de vista da placa"
         >
-          ◉ Superior
-        </Button>
+          <Button
+            variant={viewMode === 'top' ? 'activeConfirm' : 'secondary'}
+            className={styles.compactBtn}
+            onClick={() => setViewMode('top')}
+            aria-pressed={viewMode === 'top'}
+          >
+            ◉ Superior
+          </Button>
 
-        <Button
-          variant={viewMode === 'bottom' ? 'activeSelection' : 'secondary'}
-          onClick={() => setViewMode('bottom')}
-          aria-pressed={viewMode === 'bottom'}
+          <Button
+            variant={viewMode === 'bottom' ? 'activeSelection' : 'secondary'}
+            className={styles.compactBtn}
+            onClick={() => setViewMode('bottom')}
+            aria-pressed={viewMode === 'bottom'}
+          >
+            ⇄ Inferior
+          </Button>
+        </nav>
+
+        <div
+          className={styles.zoomControls}
+          aria-label="Controles de zoom"
         >
-          ⇄ Inferior
-        </Button>
-      </nav>
+          <IconButton
+            label="Diminuir zoom"
+            onClick={zoomOut}
+            disabled={!canZoomOut}
+          >
+            −
+          </IconButton>
 
-      <div
-        className={styles.zoomControls}
-        aria-label="Controles de zoom"
-      >
-        <IconButton
-          label="Diminuir zoom"
-          onClick={zoomOut}
-          disabled={!canZoomOut}
-        >
-          −
-        </IconButton>
+          <span className={styles.zoomReadout}>{zoomPercentageLabel}</span>
 
-        <span className={styles.zoomReadout}>{zoomPercentageLabel}</span>
+          <IconButton
+            label="Aumentar zoom"
+            onClick={zoomIn}
+            disabled={!canZoomIn}
+          >
+            +
+          </IconButton>
 
-        <IconButton
-          label="Aumentar zoom"
-          onClick={zoomIn}
-          disabled={!canZoomIn}
-        >
-          +
-        </IconButton>
-
-        <Button
-          variant="secondary"
-          onClick={resetViewport}
-        >
-          100%
-        </Button>
+          <Button
+            variant="secondary"
+            className={styles.compactBtn}
+            onClick={resetViewport}
+          >
+            100%
+          </Button>
+        </div>
       </div>
     </header>
   );

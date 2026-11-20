@@ -1,15 +1,24 @@
 .actionsBar {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: 4px;
+  flex-shrink: 0;
 }
 
 .historyGroup {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding-right: var(--space-2);
+  gap: 3px;
+  padding-right: 6px;
   border-right: 1px solid var(--color-border-subtle);
+  flex-shrink: 0;
+}
+
+.compactBtn {
+  padding: 5px 8px;
+  font-size: 11.5px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .hiddenFileInput {

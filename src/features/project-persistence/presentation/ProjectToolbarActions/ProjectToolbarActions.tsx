@@ -60,6 +60,7 @@ export function ProjectToolbarActions({
 
       <Button
         variant="secondary"
+        className={styles.compactBtn}
         onClick={openMetadataModal}
         title="Editar metadados do robô, versão, autor e notas"
       >
@@ -68,6 +69,7 @@ export function ProjectToolbarActions({
 
       <Button
         variant="secondary"
+        className={styles.compactBtn}
         onClick={() => fileInputRef.current?.click()}
         title="Importar arquivo .roboboard.json"
       >
@@ -76,6 +78,7 @@ export function ProjectToolbarActions({
 
       <Button
         variant="secondary"
+        className={styles.compactBtn}
         onClick={handleExportFile}
         title="Exportar projeto em arquivo .roboboard.json"
       >
@@ -85,6 +88,7 @@ export function ProjectToolbarActions({
       {onOpenFirmwareModal && (
         <Button
           variant="activeSelection"
+          className={styles.compactBtn}
           onClick={onOpenFirmwareModal}
           title="Gerar defines C++ de pinagem para firmware ESP32/Arduino"
         >
@@ -95,6 +99,7 @@ export function ProjectToolbarActions({
       {onOpenPdfPreview && (
         <Button
           variant="activeConfirm"
+          className={styles.compactBtn}
           onClick={onOpenPdfPreview}
           title="Abrir Relatório Técnico A4 Vetorial para impressão ou exportação em PDF"
         >

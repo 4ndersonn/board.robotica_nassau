@@ -39,6 +39,7 @@ export function WireToolbarControls({
       >
         <Button
           variant={isSelectActive ? 'activeConfirm' : 'secondary'}
+          className={styles.compactBtn}
           onClick={() => setToolMode('select')}
           aria-pressed={isSelectActive}
           title="Selecionar componentes e fios (Atalho: V)"
@@ -48,6 +49,7 @@ export function WireToolbarControls({
 
         <Button
           variant={isWireActive ? 'activeSelection' : 'secondary'}
+          className={styles.compactBtn}
           onClick={() => setToolMode('wire')}
           aria-pressed={isWireActive}
           title="Traçar fios na placa (Atalho: W)"
@@ -57,6 +59,7 @@ export function WireToolbarControls({
 
         <Button
           variant={isHandActive ? 'activeSelection' : 'secondary'}
+          className={styles.compactBtn}
           onClick={() => setToolMode('hand')}
           aria-pressed={isHandActive}
           title="Mover / Arrastar visão da placa (Atalho: H ou segurar Espaço)"
@@ -80,43 +83,44 @@ export function WireToolbarControls({
         </Button>
       </div>
 
-      <div className={styles.wireOptions}>
-        <div
-          className={styles.colorSwatches}
-          role="group"
-          aria-label="Cor do fio"
-        >
-          {colorPresets.map((preset) => {
-            const isSelected = preset.id === activeColorId;
-            const swatchClassName = [
-              styles.swatchBtn,
-              isSelected ? styles.swatchActive : '',
-            ]
-              .filter(Boolean)
-              .join(' ');
+      {toolMode === 'wire' && (
+        <div className={styles.wireContextualOptions}>
+          <div
+            className={styles.colorSwatches}
+            role="group"
+            aria-label="Cor do fio"
+          >
+            {colorPresets.map((preset) => {
+              const isSelected = preset.id === activeColorId;
+              const swatchClassName = [
+                styles.swatchBtn,
+                isSelected ? styles.swatchActive : '',
+              ]
+                .filter(Boolean)
+                .join(' ');
 
-            return (
-              <button
-                key={preset.id}
-                type="button"
-                className={swatchClassName}
-                style={{ backgroundColor: preset.hex }}
-                title={`${preset.name} — ${preset.usageHint}`}
-                aria-label={`Cor de fio ${preset.name}`}
-                aria-pressed={isSelected}
-                onClick={() => setActiveColorId(preset.id)}
-              />
-            );
-          })}
-        </div>
+              return (
+                <button
+                  key={preset.id}
+                  type="button"
+                  className={swatchClassName}
+                  style={{ backgroundColor: preset.hex }}
+                  title={`${preset.name} — ${preset.usageHint}`}
+                  aria-label={`Cor de fio ${preset.name}`}
+                  aria-pressed={isSelected}
+                  onClick={() => setActiveColorId(preset.id)}
+                />
+              );
+            })}
+          </div>
 
-        <div className={styles.routingToggle}>
           <Button
             variant={
               activeRoutingStyle === 'orthogonal'
                 ? 'activeSelection'
                 : 'secondary'
             }
+            className={styles.compactBtn}
             onClick={() =>
               setActiveRoutingStyle(
                 activeRoutingStyle === 'orthogonal' ? 'free' : 'orthogonal',
@@ -128,17 +132,20 @@ export function WireToolbarControls({
               ? '∟ Ortogonal 90°'
               : '∕ Livre'}
           </Button>
-
-          <Button
-            variant={showOppositeSideWires ? 'activeConfirm' : 'secondary'}
-            onClick={toggleShowOppositeSideWires}
-            title="Mostrar ou ocultar fios traçados no lado oposto da placa"
-          >
-            {showOppositeSideWires
-              ? '👁 Lado Oposto: Visível'
-              : '🚫 Lado Oposto: Oculto'}
-          </Button>
         </div>
+      )}
+
+      <div className={styles.oppositeSideGroup}>
+        <Button
+          variant={showOppositeSideWires ? 'activeConfirm' : 'secondary'}
+          className={styles.compactBtn}
+          onClick={toggleShowOppositeSideWires}
+          title="Mostrar ou ocultar fios traçados no lado oposto da placa"
+        >
+          {showOppositeSideWires
+            ? '👁 Lado Oposto: Visível'
+            : '🚫 Lado Oposto: Oculto'}
+        </Button>
       </div>
     </div>
   );
