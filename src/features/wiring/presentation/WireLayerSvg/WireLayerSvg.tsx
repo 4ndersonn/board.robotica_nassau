@@ -1,11 +1,18 @@
 import type { BoardViewMode } from '@features/board/domain';
-import type { Wire, WireColor, WireColorId } from '../../domain';
+import type {
+  EditorToolMode,
+  Wire,
+  WireColor,
+  WireColorId,
+} from '../../domain';
 import { projectWirePointsToSvg } from '../wireSvgProjection';
 import styles from './WireLayerSvg.module.css';
 
 export interface WireLayerSvgProps {
   readonly wires: readonly Wire[];
   readonly viewMode: BoardViewMode;
+  readonly toolMode?: EditorToolMode;
+  readonly isDrawingWire?: boolean;
   readonly showOppositeSideWires: boolean;
   readonly colorMap: ReadonlyMap<WireColorId, WireColor>;
   readonly selectedWireId: string | null;
@@ -17,6 +24,8 @@ export interface WireLayerSvgProps {
 export function WireLayerSvg({
   wires,
   viewMode,
+  toolMode = 'select',
+  isDrawingWire = false,
   showOppositeSideWires,
   colorMap,
   selectedWireId,
@@ -28,8 +37,20 @@ export function WireLayerSvg({
     (wire) => wire.side === viewMode || showOppositeSideWires,
   );
 
+  const isInteractive = toolMode === 'select';
+
+  const layerClassName = [
+    !isInteractive ? styles.nonInteractive : '',
+    isDrawingWire ? styles.layerDimmedWhileDrawing : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
-    <g aria-label="Camada de Fios e Trilhas">
+    <g
+      className={layerClassName || undefined}
+      aria-label="Camada de Fios e Trilhas"
+    >
       {visibleWires.map((wire) => {
         const isCurrentSide = wire.side === viewMode;
         const isSelected = wire.id === selectedWireId;
@@ -50,13 +71,23 @@ export function WireLayerSvg({
         return (
           <g
             key={wire.id}
-            className={styles.wireGroup}
-            onClick={(event) => {
-              event.stopPropagation();
-              onSelectWire(wire.id);
-            }}
-            onMouseEnter={() => onHoverWire(wire.id)}
-            onMouseLeave={() => onHoverWire(null)}
+            className={
+              isInteractive ? styles.wireGroup : styles.nonInteractive
+            }
+            onClick={
+              isInteractive
+                ? (event) => {
+                    event.stopPropagation();
+                    onSelectWire(wire.id);
+                  }
+                : undefined
+            }
+            onMouseEnter={
+              isInteractive ? () => onHoverWire(wire.id) : undefined
+            }
+            onMouseLeave={
+              isInteractive ? () => onHoverWire(null) : undefined
+            }
           >
             {isHighlighted && (
               <polyline
@@ -73,10 +104,12 @@ export function WireLayerSvg({
               }
             />
 
-            <polyline
-              points={polylinePointsAttr}
-              className={styles.hitPolyline}
-            />
+            {isInteractive && (
+              <polyline
+                points={polylinePointsAttr}
+                className={styles.hitPolyline}
+              />
+            )}
 
             {isCurrentSide &&
               waypointCenters.slice(1, -1).map((wp, idx) => (

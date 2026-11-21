@@ -1,5 +1,6 @@
-.previewGroup {
-  pointer-events: none;
+.previewGroup,
+.previewGroup * {
+  pointer-events: none !important;
 }
 
 .previewPolyline {
@@ -8,15 +9,18 @@
   stroke-dasharray: 6 4;
   stroke-linecap: round;
   stroke-linejoin: round;
+  pointer-events: none !important;
 }
 
 .originPulse {
   fill: none;
   stroke: var(--color-accent-selection);
   stroke-width: 2px;
+  pointer-events: none !important;
 }
 
 .waypointDot {
   stroke: #121214;
   stroke-width: 1.5px;
+  pointer-events: none !important;
 }

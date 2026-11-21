@@ -1,3 +1,13 @@
+.nonInteractive,
+.nonInteractive * {
+  pointer-events: none !important;
+}
+
+.layerDimmedWhileDrawing {
+  opacity: 0.72;
+  transition: opacity 150ms ease;
+}
+
 .wireGroup {
   cursor: pointer;
 }
