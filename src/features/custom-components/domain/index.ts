@@ -14,6 +14,14 @@ export {
   type QuickPinRowPreset,
 } from './customComponentRules';
 
+export {
+  evaluateUpdateImpact,
+  evaluateDeleteImpact,
+  type BoardDimensionsConfig,
+  type CustomComponentUpdateImpact,
+  type CustomComponentDeleteImpact,
+} from './validateCustomComponentImpact';
+
 export type {
   CustomCatalogStoragePort,
   CustomLibraryFilePort,

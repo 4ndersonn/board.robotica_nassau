@@ -18,16 +18,23 @@ export function CustomComponentModal({
     selectedPinCoord,
     selectedPin,
     validationErrors,
+    blockingErrors,
+    pendingUpdateWarnings,
     closeModal,
     handleMiniGridHoleClick,
     updateSelectedPin,
     removeSelectedPin,
     saveDraftComponent,
+    confirmUpdateWithWarnings,
+    dismissUpdateWarnings,
   } = controller;
 
   if (!isModalOpen) {
     return null;
   }
+
+  const allErrors = [...validationErrors, ...blockingErrors];
+  const hasWarningsConfirmation = pendingUpdateWarnings.length > 0;
 
   return (
     <div
@@ -72,11 +79,45 @@ export function CustomComponentModal({
           </div>
         </div>
 
-        {validationErrors.length > 0 && (
-          <div className={styles.errorsBox}>
-            {validationErrors.map((err, idx) => (
+        {allErrors.length > 0 && (
+          <div
+            className={styles.errorsBox}
+            role="alert"
+          >
+            <div className={styles.feedbackTitle}>
+              Não foi possível salvar as alterações:
+            </div>
+            {allErrors.map((err, idx) => (
               <div key={`err-${idx}`}>{`• ${err}`}</div>
             ))}
+          </div>
+        )}
+
+        {hasWarningsConfirmation && (
+          <div
+            className={styles.warningsBox}
+            role="status"
+          >
+            <div className={styles.feedbackTitle}>
+              Atenção: impacto nas conexões existentes na placa
+            </div>
+            {pendingUpdateWarnings.map((warn, idx) => (
+              <div key={`warn-${idx}`}>{`• ${warn}`}</div>
+            ))}
+            <div className={styles.warningsActions}>
+              <Button
+                variant="secondary"
+                onClick={dismissUpdateWarnings}
+              >
+                Revisar Pinagem
+              </Button>
+              <Button
+                variant="activeSelection"
+                onClick={confirmUpdateWithWarnings}
+              >
+                Confirmar e Atualizar Componente
+              </Button>
+            </div>
           </div>
         )}
 
@@ -87,12 +128,14 @@ export function CustomComponentModal({
           >
             Cancelar
           </Button>
-          <Button
-            variant="activeConfirm"
-            onClick={saveDraftComponent}
-          >
-            {draft.id ? 'Salvar Alterações' : 'Criar Componente'}
-          </Button>
+          {!hasWarningsConfirmation && (
+            <Button
+              variant="activeConfirm"
+              onClick={saveDraftComponent}
+            >
+              {draft.id ? 'Salvar Alterações' : 'Criar Componente'}
+            </Button>
+          )}
         </footer>
       </div>
     </div>

@@ -24,6 +24,10 @@ export function App() {
   const viewportController = useBoardViewport();
 
   const placedComponentsRef = useRef<readonly PlacedComponent[]>([]);
+  const wiresRef = useRef<readonly import('@features/wiring/domain').Wire[]>([]);
+  const catalogMapRef = useRef<
+    ReadonlyMap<string, import('@features/components-catalog/domain').ComponentDefinition>
+  >(new Map());
   const replacePlacedRef = useRef<
     ((next: readonly PlacedComponent[]) => void) | null
   >(null);
@@ -40,11 +44,33 @@ export function App() {
     [],
   );
 
+  const handleTouchPlacedByDefinitionId = useCallback(
+    (definitionId: string) => {
+      if (replacePlacedRef.current) {
+        const updated = placedComponentsRef.current.map((item) =>
+          item.definitionId === definitionId ? { ...item } : item,
+        );
+        replacePlacedRef.current(updated);
+      }
+    },
+    [],
+  );
+
+  const getPlacedComponents = useCallback(
+    () => placedComponentsRef.current,
+    [],
+  );
+  const getWires = useCallback(() => wiresRef.current, []);
+  const getCatalogMap = useCallback(() => catalogMapRef.current, []);
+
   const customController = useCustomComponents({
     storagePort: localStorageCustomCatalogRepository,
     filePort: jsonLibraryAdapter,
-    placedComponents: placedComponentsRef.current,
+    placedComponents: getPlacedComponents,
+    wires: getWires,
+    catalogMap: getCatalogMap,
     onRemovePlacedByDefinitionId: handleRemovePlacedByDefinitionId,
+    onTouchPlacedByDefinitionId: handleTouchPlacedByDefinitionId,
   });
 
   const catalogController = useComponentsCatalog(
@@ -55,6 +81,7 @@ export function App() {
   );
 
   placedComponentsRef.current = catalogController.placedComponents;
+  catalogMapRef.current = catalogController.catalogMap;
   replacePlacedRef.current = catalogController.replacePlacedComponents;
 
   const wiringController = useWiring({
@@ -67,6 +94,8 @@ export function App() {
     onExitComponentPlacement: catalogController.cancelPlacement,
     onClearComponentSelection: () => catalogController.selectComponent(null),
   });
+
+  wiresRef.current = wiringController.wires;
 
   useEffect(() => {
     viewportController.setIsHandToolActive(

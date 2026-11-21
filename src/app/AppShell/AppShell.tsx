@@ -26,7 +26,10 @@ import { FirmwareExportModal } from '@features/firmware-export/presentation';
 import type { PdfExportController } from '@features/pdf-export/application';
 import { PdfPreviewModal } from '@features/pdf-export/presentation';
 import type { CustomComponentsController } from '@features/custom-components/application';
-import { CustomComponentModal } from '@features/custom-components/presentation';
+import {
+  CustomComponentDeleteModal,
+  CustomComponentModal,
+} from '@features/custom-components/presentation';
 import { TopBar } from './TopBar';
 import styles from './AppShell.module.css';
 
@@ -235,6 +238,7 @@ export function AppShell({
         colorMap={colorMap}
       />
       <CustomComponentModal controller={customController} />
+      <CustomComponentDeleteModal controller={customController} />
     </div>
   );
 }

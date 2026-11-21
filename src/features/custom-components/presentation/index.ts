@@ -3,6 +3,10 @@ export {
   type CustomComponentModalProps,
 } from './CustomComponentModal/CustomComponentModal';
 export {
+  CustomComponentDeleteModal,
+  type CustomComponentDeleteModalProps,
+} from './CustomComponentDeleteModal/CustomComponentDeleteModal';
+export {
   ComponentConfigForm,
   type ComponentConfigFormProps,
 } from './ComponentConfigForm/ComponentConfigForm';
